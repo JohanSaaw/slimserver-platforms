@@ -454,7 +454,12 @@ sub buildDockerImage {
 
 	my @tags = ("$version");
 	$tag ||= "rc" if $releaseType eq "release";
-	push @tags, $tag if $tag;
+	
+	# Split the tag into multiple tags if commas are present
+	if ($tag) {
+		my @split_tags = split(/,/, $tag);
+		push @tags, @split_tags;
+	}
 
 	my $tags = join(' ', map {
 		" --tag lmscommunity/$defaultDestName:$_";
