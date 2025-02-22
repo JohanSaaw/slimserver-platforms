@@ -58,6 +58,27 @@
 		"FR": "Exécuter le service automatiquement",
 		"NL": "Service automatisch uitvoeren"
 	},
+	"SETUP_RESCAN": {
+		"DA": "Gennemsøg mediebibliotek igen",
+		"DE": "Medienbibliothek erneut durchsuchen",
+		"EN": "Rescan Media Library",
+		"FR": "Analyser la bibliothèque multimédia",
+		"NL": "Mediabibliotheek opnieuw scannen"
+	},
+	"SETUP_WIPEDB": {
+		"DA": "Ryd biblioteket, og gennemsøg alle mapper igen",
+		"DE": "Datenbank löschen und alles neu durchsuchen",
+		"EN": "Clear library and rescan everything",
+		"FR": "Effacer la bibliothèque et tout analyser à nouveau",
+		"NL": "Mediabibliotheek wissen en alles opnieuw scannen"
+	},
+	"SETUP_STANDARDRESCAN": {
+		"DA": "Søg efter nye og ændrede mediefiler",
+		"DE": "Nach neuen und veränderten Mediendateien suchen",
+		"EN": "Look for new and changed media files",
+		"FR": "Rechercher les fichiers multimédias ajoutés ou modifiés",
+		"NL": "Nieuwe en gewijzigde mediabestanden zoeken"
+	},
 	"UPDATE_AVAILABLE": {
 		"DA": "✨ En opdateret version er tilgængelig",
 		"DE": "✨ Eine aktualisierte Version ist verfügbar",
