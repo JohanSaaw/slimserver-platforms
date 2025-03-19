@@ -514,9 +514,12 @@ sub buildPCP {
 	copy("$buildDir/platforms/pcp/slimserver", "$buildDir/build/usr/local/etc/init.d");
 	copy("$buildDir/platforms/pcp/lms-update.sh", "$buildDir/build/usr/local/bin");
 
+	system("find $buildDir/build -type f -perm 644");
+	system("find $buildDir/build -type d -perm 755");
+	system("find $buildDir/build/usr/local/slimserver -name '*.pl' -perm 755");
 	chmod 0755, "$buildDir/build/usr/local/etc/init.d/slimserver";
 	chmod 0755, "$buildDir/build/usr/local/bin/lms-update.sh";
-	system("find $buildDir/build/usr/local/slimserver/Bin -perm 755");
+	system("find $buildDir/build/usr/local/slimserver/Bin -type f -perm 755");
 
 	print "INFO: Building TCZ package with source from $buildDir/build...\n";
 	system("mksquashfs $buildDir/build $destDir/$defaultDestName.tcz -noappend -force-uid 0 -force-gid 50 -b 16384");
