@@ -502,7 +502,7 @@ sub buildPCP {
 	system("find $buildDir/build/usr/local/slimserver/Bin -type f -perm 755");
 
 	print "INFO: Building TCZ package with source from $buildDir/build...\n";
-	system("mksquashfs $buildDir/build $destDir/$defaultDestName.tcz -noappend -force-uid 0 -force-gid 50 -b 16384");
+	system("mksquashfs $buildDir/build $destDir/$destName.tcz -noappend -force-uid 0 -force-gid 50 -b 16384");
 }
 
 ##############################################################################################
