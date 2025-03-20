@@ -77,6 +77,8 @@ sub main {
 
 	## Ok, begin the IF statement... what are we building?
 	doCommandOptions();
+
+	createMD5Checksums();
 }
 
 ##############################################################################################
@@ -352,6 +354,21 @@ sub doCommandOptions {
 		buildWin64("$destName-win64");
 
 	}
+}
+
+##############################################################################################
+## Create MD5 checksum files for each build                                                 ##
+##############################################################################################
+sub createMD5Checksums {
+	opendir(my $dh, $destDir) or do {
+		warn "Cannot open directory $destDir: $!";
+		return;
+	};
+
+	my @files = grep { /lyrion.*server/i && -f "$destDir/$_" } readdir($dh);
+	closedir($dh);
+
+	system("cd $destDir; md5sum $_ > $_.md5") for @files;
 }
 
 ##############################################################################################
