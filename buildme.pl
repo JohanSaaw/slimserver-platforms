@@ -368,7 +368,12 @@ sub createMD5Checksums {
 	my @files = grep { /lyrion.*server/i && -f "$destDir/$_" } readdir($dh);
 	closedir($dh);
 
-	system("cd $destDir; md5sum $_ > $_.md5") for @files;
+	# macOS doesn't come with md5sum - use md5 instead
+	if ($^O eq 'darwin') {
+		system("cd $destDir; md5 -r $_ > $_.md5") for @files;
+	} else {
+		system("cd $destDir; md5sum $_ > $_.md5") for @files;
+	}
 }
 
 ##############################################################################################
