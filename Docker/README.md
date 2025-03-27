@@ -135,6 +135,8 @@ docker run -it \
       lmscommunity/lyrionmusicserver
 ```
 ### Using the Local Player Plugin inside your Container
+NOTE: This requires audio hardware installed on the host machine which means this is unlikely to work on most NAS solutions like Synology or QNAP.
+
 To use the Local Player plugin you need to specify an audio device to use:
 
 For `docker run` add:
