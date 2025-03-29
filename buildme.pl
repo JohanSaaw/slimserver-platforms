@@ -510,9 +510,6 @@ sub buildPCP {
 	mkpath("$buildDir/build/usr/local/etc/init.d");
 
 	system("mv $buildDir/server $buildDir/build/usr/local/slimserver");
-	copy("$buildDir/platforms/pcp/Custom.pm", "$buildDir/build/usr/local/slimserver/Slim/Utils/OS");
-	copy("$buildDir/platforms/pcp/picore-update.html", "$buildDir/build/usr/local/slimserver/HTML/EN/html/docs");
-	copy("$buildDir/platforms/pcp/custom-strings.txt", "$buildDir/build/usr/local/slimserver");
 	copy("$buildDir/platforms/pcp/slimserver", "$buildDir/build/usr/local/etc/init.d");
 	copy("$buildDir/platforms/pcp/lms-update.sh", "$buildDir/build/usr/local/bin");
 
