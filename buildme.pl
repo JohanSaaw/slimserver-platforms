@@ -494,6 +494,7 @@ sub buildDockerImage {
 	}
 
 	$registry ||= "lmscommunity";
+	$registry = lc($registry);
 	print "INFO: Using registry $registry\n";
 
 	my $tags = join(' ', map {
