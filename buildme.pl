@@ -361,6 +361,8 @@ sub doCommandOptions {
 ## Create MD5 checksum files for each build                                                 ##
 ##############################################################################################
 sub createMD5Checksums {
+	return if $build eq 'docker';
+
 	opendir(my $dh, $destDir) or do {
 		warn "Cannot open directory $destDir: $!";
 		return;
@@ -440,7 +442,7 @@ sub showUsage {
 	print "--- Building a Docker image (with only ARM and x86_64 Linux binaries)\n";
 	print "    --build docker <required opts above>\n";
 	print "    --tag <tag>                  - additional tag for the Docker image\n";
-	print "    --registry <registry>        - registry to push the image to\n";
+	print "    --registry <registry>        - registry to push the image to (in addition to Dockerhub\n";
 	print "\n";
 	print "--- Building an RPM package\n";
 	print "    --build rpm <required opts above>\n";
@@ -513,16 +515,23 @@ sub buildDockerImage {
 	$tag ||= "rc" if $releaseType eq "release";
 	push @tags, $tag if $tag;
 
-	$registry ||= "lmscommunity";
-	$registry = lc($registry);
-	print "INFO: Using registry $registry\n";
+	$registry = lc($registry) if $registry;
 
-	my $tags = join(' ', map {
-		" --tag $registry/$defaultDestName:$_";
-	} @tags);
+	my $tags;
+	foreach my $r ('lmscommunity', $registry) {
+		next unless $r;
+
+		my $tag = ' --tag ' . lc($r) . '/' . $defaultDestName;
+
+		foreach my $t (@tags) {
+			$tags .= "$tag:$t";
+		}
+	}
+
+	print "INFO: Building Docker image with tags:$tags\n";
 
 	system("cd $workDir; docker buildx build --push --platform linux/arm/v7,linux/amd64,linux/arm64/v8 $tags .") == 0
-			or die("Docker build failed: $!");
+		or die("Docker build failed: $!");
 }
 
 ##############################################################################################
