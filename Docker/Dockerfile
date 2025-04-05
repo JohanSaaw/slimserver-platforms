@@ -4,7 +4,7 @@ FROM debian:bookworm-slim
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
-ENV PUID=99 PGID=100
+ENV PUID=499 PGID=100
 ENV HTTP_PORT=9000
 
 # Install packages
@@ -15,9 +15,8 @@ RUN apt-get update -qq  && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add & configure user
-RUN useradd squeezeboxserver && \
-	usermod -u $PUID squeezeboxserver && \
-	groupmod -o -g "$PGID" squeezeboxserver && \
+RUN adduser --system --group -uid=$PUID squeezeboxserver && \
+	usermod -g $PGID squeezeboxserver && \
 	usermod -d /home squeezeboxserver && \
 	usermod -a -G audio squeezeboxserver
 
