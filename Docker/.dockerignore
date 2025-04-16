@@ -1,8 +1,7 @@
-CPAN/arch/5.8
 CPAN/arch/5.1*
 CPAN/arch/5.2*
 CPAN/arch/5.3[0248]
-CPAN/Font
+CPAN/arch/5.40
 Bin/arm-linux
 Bin/darwin* 
 Bin/i86* 
@@ -12,5 +11,6 @@ Bin/powerpc-linux
 Bin/sparc-linux
 icudt46b.dat
 icudt58b.dat
+Slim/Plugin/PreventStandby
 Plugins/*
 .git
