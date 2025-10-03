@@ -4,7 +4,7 @@
 ; Lyrion Community: https://www.lyrion.org
 
 #define AppName "Lyrion Music Server"
-#define AppVersion "9.0.3"
+#define AppVersion "9.0.4"
 #define ProductURL "https://forums.slimdevices.com"
 #define SBRegKey   "SOFTWARE\Lyrion\Server"
 #define LegacyRegkey "SOFTWARE\Logitech\Squeezebox"
