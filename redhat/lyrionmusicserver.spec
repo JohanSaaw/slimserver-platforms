@@ -605,6 +605,10 @@ fi
 
 
 %changelog
+* Mon Oct 20 2025 Peter Oliver <rpm@mavit.org.uk>
+- Drop support for Perl versions not used in any currently supported
+  distribution.
+
 * Sat Feb 01 2025 Johan Saaw
 - Removed selinux config support for mySQL/MariaDB databases as they are no
   longer officially supported for LMS
