@@ -29,7 +29,7 @@ my $windowsPerlPath = "$windowsPerlDir\\bin\\perl.exe";
 
 ## Directories to exclude when building certain packages...
 my $dirsToExcludeForLinuxTarball = "i386-freebsd-64int MSWin32-x86-multi-thread MSWin32-x64-multi-thread darwin darwin-x86_64 PreventStandby i86pc-solaris-thread-multi-64int powerpc-linux sparc-linux";
-my $dirsToExcludeForLinuxPackage = "$dirsToExcludeForLinuxTarball 5.10 5.12 5.14 5.16 5.18 5.20 5.24 5.28 5.30 5.34 5.38";
+my $dirsToExcludeForLinuxPackage = "$dirsToExcludeForLinuxTarball 5.10 5.12 5.14 5.16 5.18";
 my $dirsToExcludeForFreeBSDTarball = "MSWin32-x86-multi-thread MSWin32-x64-multi-thread PreventStandby i386-linux x86_64-linux i86pc-solaris-thread-multi-64int darwin darwin-x86_64 sparc-linux arm-linux armhf-linux powerpc-linux aarch64-linux icudt46b.dat";
 my $dirsToExcludeForARMTarball = "MSWin32-x86-multi-thread MSWin32-x64-multi-thread PreventStandby i386-linux x86_64-linux i86pc-solaris-thread-multi-64int darwin darwin-x86_64 sparc-linux i386-freebsd-64int powerpc-linux icudt46b.dat icudt58b.dat";
 my $dirsToExcludeForPPCTarball = "MSWin32-x86-multi-thread MSWin32-x64-multi-thread PreventStandby i386-linux x86_64-linux i86pc-solaris-thread-multi-64int darwin darwin-x86_64 sparc-linux arm-linux armhf-linux i386-freebsd-64int aarch64-linux icudt46l.dat icudt58l.dat";
@@ -43,19 +43,23 @@ my $dirsToExcludeForPCP = "$dirsToExcludeForLinuxNoCpanTarball CPAN/Font";
 my $dirsToExcludeForMacOS = "5.10 5.12 5.14 5.16 5.20 5.22 5.24 5.26 5.28 5.30 5.32 5.36 5.38 5.40 i386-freebsd-64int i386-linux x86_64-linux x86_64-linux-gnu-thread-multi MSWin32 i86pc-solaris-thread-multi-64int arm-linux armhf-linux powerpc-linux sparc-linux aarch64-linux OS/Debian.pm OS/Linux.pm OS/pCP.pm OS/RedHat.pm OS/Suse.pm OS/SlimService.pm OS/Synology.pm OS/SqueezeOS.pm OS/Unix.pm OS/Win32.pm OS/Win64.pm";
 my $dirsToExcludeForWin64 = "5.10 5.12 5.14 5.16 5.18 5.20 5.22 5.24 5.26 5.28 5.30 5.34 5.36 5.38 5.40 i386-freebsd-64int i386-linux x86_64-linux x86_64-linux-gnu-thread-multi i86pc-solaris-thread-multi-64int darwin darwin-x86_64 sparc-linux arm-linux armhf-linux powerpc-linux aarch64-linux OS/Debian.pm OS/Linux.pm OS/OSX.pm OS/pCP.pm OS/RedHat.pm OS/Suse.pm OS/SlimService.pm OS/Synology.pm OS/SqueezeOS.pm OS/Unix.pm icudt46b.dat icudt46l.dat icudt58b.dat icudt58l.dat";
 
-## Distributions supported by their vendors, at the time of writing:
-# Fedora 43 and openSUSE Leap 16.0 have Perl 5.42
-# Fedora 41-42 and RHEL 10 have Perl 5.40
-# RHEL 9 has Perl 5.32
-# RHEL 8, openSUSE Leap 15.6, and SLES 15 have Perl 5.26
-my $dirsToExcludeForRPM = "$dirsToExcludeForLinuxPackage 5.22 5.36";
+# Here are the Perl versions in some RPM-based distributions supported
+# by their vendors, at the time of writing:
+# 	Fedora 43 and openSUSE Leap 16.0 have Perl 5.42
+# 	Fedora 41-42 and RHEL 10 have Perl 5.40
+# 	RHEL 9 has Perl 5.32
+# 	RHEL 8, openSUSE Leap 15.6, and SLES 15 have Perl 5.26
+#
+# However, we see a surprising proportion of other things in use:
+# https://github.com/LMS-Community/slimserver-platforms/pull/99#issuecomment-3423325041
+my $dirsToExcludeForRPM = "$dirsToExcludeForLinuxPackage 5.20";
 
 # for Docker we provide x86_64 and armhf for Perl 5.36 only
 # Dont't forget to keep this list in sync with the file "Docker/.dockerignore"
-my $dirsToExcludeForDocker = "$dirsToExcludeForLinuxPackage 5.22 5.26 5.32 5.40 i386-linux icudt46b.dat icudt58b.dat";
+my $dirsToExcludeForDocker = "$dirsToExcludeForLinuxPackage 5.20 5.22 5.24 5.26 5.28 5.30 5.32 5.34 5.38 5.40 i386-linux icudt46b.dat icudt58b.dat";
 
 # Musical Fidelity comes with Perl 5.22
-my $dirsToExcludeForEncore = "$dirsToExcludeForLinuxPackage 5.26 5.32 5.36 5.40 i386-linux arm-linux armhf-linux aarch64-linux i86pc-solaris-thread-multi-64int sparc-linux powerpc-linux icudt46l.dat icudt46b.dat";
+my $dirsToExcludeForEncore = "$dirsToExcludeForLinuxPackage 5.20 5.24 5.26 5.28 5.30 5.32 5.34 5.36 5.38 5.40 i386-linux arm-linux armhf-linux aarch64-linux i86pc-solaris-thread-multi-64int sparc-linux powerpc-linux icudt46l.dat icudt46b.dat";
 
 ## Initialize some variables we'll use later
 my ($build, $destName, $destDir, $buildDir, $sourceDir, $version, $noCPAN, $fakeRoot, $light, $freebsd, $arm, $encore, $ppc, $x86_64, $i386, $releaseType, $release, $tag, $registry);
