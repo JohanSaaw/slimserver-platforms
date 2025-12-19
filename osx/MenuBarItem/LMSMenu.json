@@ -3,6 +3,7 @@
 		"EN": "9.1.0"
 	},
 	"ABOUT_SERVER": {
+		"CS": "O Lyrion Music Serveru",
 		"DA": "Om Lyrion Music Server",
 		"DE": "Über Lyrion Music Server",
 		"EN": "About Lyrion Music Server",
@@ -10,6 +11,7 @@
 		"NL": "Over Lyrion Music Server"
 	},
 	"OPEN_SETTINGS": {
+		"CS": "Otevřít nastavení...",
 		"DA": "Åben indstillinger...",
 		"DE": "Einstellungen öffnen...",
 		"EN": "Open Settings...",
@@ -17,6 +19,7 @@
 		"NL": "Instellingen openen..."
 	},
 	"STOP_SERVICE": {
+		"CS": "Zastavit server",
 		"DA": "Stop tjeneste",
 		"DE": "Server stoppen",
 		"EN": "Stop Server",
@@ -24,6 +27,7 @@
 		"NL": "Stop service"
 	},
 	"OPEN_GUI": {
+		"CS": "Otevřít webové ovládání...",
 		"DA": "Åben web-styring...",
 		"DE": "Web-Steuerung öffnen...",
 		"EN": "Open Web Control...",
@@ -31,6 +35,7 @@
 		"NL": "Open Web Control..."
 	},
 	"START_SERVICE": {
+		"CS": "Spustit server",
 		"DA": "Start tjeneste",
 		"DE": "Server starten",
 		"EN": "Start Server",
@@ -38,6 +43,7 @@
 		"NL": "Service starten"
 	},
 	"SERVICE_STARTING": {
+		"CS": "Server se spouští...",
 		"DA": "Tjeneste starter...",
 		"DE": "Server wird gestartet...",
 		"EN": "Server is starting up...",
@@ -45,6 +51,7 @@
 		"NL": "De service begint..."
 	},
 	"AUTOSTART_ON": {
+		"CS": "✓ Spouštět server automaticky",
 		"DA": "✓ Kør tjeneste automatisk",
 		"DE": "✓ Server automatisch ausführen",
 		"EN": "✓ Run Server automatically",
@@ -52,6 +59,7 @@
 		"NL": "✓ Service automatisch uitvoeren"
 	},
 	"AUTOSTART_OFF": {
+		"CS": "Spouštět server automaticky",
 		"DA": "Kør tjeneste automatisk",
 		"DE": "Server automatisch ausführen",
 		"EN": "Run Server automatically",
@@ -59,6 +67,7 @@
 		"NL": "Service automatisch uitvoeren"
 	},
 	"SETUP_RESCAN": {
+		"CS": "Znovu prohledání knihovny médií",
 		"DA": "Gennemsøg mediebibliotek igen",
 		"DE": "Medienbibliothek erneut durchsuchen",
 		"EN": "Rescan Media Library",
@@ -66,6 +75,7 @@
 		"NL": "Mediabibliotheek opnieuw scannen"
 	},
 	"SETUP_WIPEDB": {
+		"CS": "Vyčistit knihovnu a vše prohledat znovu",
 		"DA": "Ryd biblioteket, og gennemsøg alle mapper igen",
 		"DE": "Datenbank löschen und alles neu durchsuchen",
 		"EN": "Clear library and rescan everything",
@@ -73,6 +83,7 @@
 		"NL": "Mediabibliotheek wissen en alles opnieuw scannen"
 	},
 	"SETUP_STANDARDRESCAN": {
+		"CS": "Hledat nové a změněné mediální soubory",
 		"DA": "Søg efter nye og ændrede mediefiler",
 		"DE": "Nach neuen und veränderten Mediendateien suchen",
 		"EN": "Look for new and changed media files",
@@ -80,6 +91,7 @@
 		"NL": "Nieuwe en gewijzigde mediabestanden zoeken"
 	},
 	"UPDATE_AVAILABLE": {
+		"CS": "✨ Je dostupná aktualizovaná verze",
 		"DA": "✨ En opdateret version er tilgængelig",
 		"DE": "✨ Eine aktualisierte Version ist verfügbar",
 		"EN": "✨ An updated version is available",
@@ -87,6 +99,7 @@
 		"NL": "✨ Een bijgewerkte versie is beschikbaar"
 	},
 	"UPDATE_TITLE": {
+		"CS": "Aktualizace Lyrion Music Serveru",
 		"DA": "Lyrion Music Server opdatering",
 		"DE": "Lyrion Music Server Aktualisierung",
 		"EN": "Lyrion Music Server Update",
@@ -94,6 +107,7 @@
 		"NL": "Lyrion Music Server Update"
 	},
 	"INSTALL_UPDATE": {
+		"CS": "Pro aktualizaci vašeho Lyrion Music Serveru zastavte server, ukončete položku v menu a přesuňte aplikaci „Lyrion Music Server“ do složky „Aplikace“.",
 		"DA": "For at opdatere din Lyrion Music Server, stop tjenesten, afslut punktet i menubjælken, og flyt \"Lyrion Music Server\" applikationen til dit \"Applications\" katalog.",
 		"DE": "Um die aktualisierte Version von Lyrion Music Server zu installieren, stoppen Sie den Server, beenden Sie das Element in der Menüzeile, und verschieben Sie die \"Lyrion Music Server\" Anwendung in den \"Programme\" Ordner.",
 		"EN": "In order to update your Lyrion Music Server, stop the server, quit the menu bar item, and move the \"Lyrion Music Server\" application to your \"Applications\" folder.",
@@ -101,6 +115,7 @@
 		"NL": "Om je Lyrion Music Server bij te werken, stop je de service, sluit je het menu af en verplaats je het programma \"Lyrion Music Server\" naar je map \"Toepassingen\"."
 	},
 	"UNINSTALL_PREFPANE": {
+		"CS": "🧹 Jak odinstalovat starý Panel nastavení",
 		"DA": "🧹 Afinstaller gamle LMS systemindstillinger",
 		"DE": "🧹 Die alte LMS Systemeinstellung entfernen",
 		"EN": "🧹 How to uninstall the legacy Settings Pane",
