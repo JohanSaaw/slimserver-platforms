@@ -13,7 +13,7 @@ pl.AppConflict=Znaleziono potencjalny konflikt oprogramowania
 ru.AppConflict=Обнаружен возможный конфликт ПО
 sv.AppConflict=Eventuellt programvarukonflikt upptäcktes
 
-cz.AppConflict_Description=Na vašem přístroji běží program, který by mohl za určitých podmínek kolidovat %nse Lyrion Music Server.%n%nPokud máte problémy s použitím Lyrion Music Server, kontaktujte laskavě technickou podporu.%n%nVíce informací naleznete na https://forums.slimdevices.com
+cz.AppConflict_Description=Na vašem přístroji běží program, který by mohl za určitých podmínek kolidovat %ns Lyrion Music Serverem.%n%nPokud máte problémy s použitím Lyrion Music Serveru, kontaktujte, prosím, uživatelskou komunitu.%n%nVíce informací naleznete na https://forums.lyrion.org
 da.AppConflict_Description=Der er fundet et program på computeren som måske vil skabe konflikt %nmed Lyrion Music Server i visse situationer.%n%nHvis du har problemer med at bruge Lyrion Music Server, bedes du kontakte den tekniske support.%n%nDer er flere oplysninger på https://forums.slimdevices.com
 de.AppConflict_Description=Auf dem Computer wird ein Programm ausgeführt, das möglicherweise zu Konflikten%nmit Lyrion Music Server führen könnte.%n%nWenn bei der Nutzung von Lyrion Music Server Probleme auftreten, wenden Sie sich an die Usercommunity.%n%nWeitere Informationen unter https://forums.slimdevices.com
 en.AppConflict_Description=A program has been found running on your machine which may conflict%nwith Lyrion Music Server under certain conditions.%n%nIf you have problems using Lyrion Music Server, please contact the user community.%n%nFor more information, visit https://forums.slimdevices.com
@@ -27,7 +27,7 @@ pl.AppConflict_Description=Na komputerze znaleziono działający program, który
 ru.AppConflict_Description=На компьютере выполняется программа, которая при определенных условиях может конфликтовать%nс Lyrion Music Server.%n%nПри наличии проблем с использованием Lyrion Music Server обратитесь в службу технической поддержки.%n%nПодробнее см. на сайте https://forums.slimdevices.com
 sv.AppConflict_Description=Ett program som under vissa omständigheter kan orsaka konflikt med Lyrion Music Server har upptäckts.%nOm det uppstår problem i Lyrion Music Server bör du ta kontakt med teknisk support.%n%n Mer information finns på https://forums.slimdevices.com
 
-cz.Caption=Průvodce odstraňováním problému Lyrion Music Server
+cz.Caption=Průvodce odstraňováním problému Lyrion Music Serveru
 da.Caption=Lyrion Music Server-guiden Problemløsning
 de.Caption=Lyrion Music Server - Assistent zur Fehlerbehebung
 en.Caption=Lyrion Music Server Troubleshooting Wizard
@@ -41,7 +41,7 @@ pl.Caption=Kreator rozwiązywania problemów z urządzeniem Lyrion Music Server
 ru.Caption=Мастер устранения неполадок Lyrion Music Server
 sv.Caption=Felsökningsguide för Lyrion Music Server
 
-cz.CiscoVPNStatefulInspection=Pokud se Lyrion Music Server narazíte na problémy konektivity,%n ujistěte se, že je vypnutý "Plný firewall (vždy zapnuto)"
+cz.CiscoVPNStatefulInspection=Pokud s Lyrion Music Serverem narazíte na problémy konektivity,%n ujistěte se, že je vypnutý „Stateful Firewall (Always On)“
 da.CiscoVPNStatefulInspection=Hvis du har problemer med forbindelsen til og fra Lyrion Music Server,%n skal du kontrollere at "Stateful Firewall (Always On)" er slået fra
 de.CiscoVPNStatefulInspection=Vergewissern Sie sich bei Verbindungsproblemen mit Lyrion Music Server,%n dass "Stateful Firewall (Always On)" deaktiviert ist.
 en.CiscoVPNStatefulInspection=If you encounter connectivity issues with Lyrion Music Server,%n please make sure "Stateful Firewall (Always On)" is turned off
@@ -125,7 +125,7 @@ pl.License=Licencja
 ru.License=Лицензия
 sv.License=Licens
 
-cz.ManageService=Volby při spuštění Lyrion Music Server
+cz.ManageService=Volby při spuštění Lyrion Music Serveru
 da.ManageService=Startindstillinger for Lyrion Music Server
 de.ManageService=Lyrion Music Server-Startoptionen
 en.ManageService=Lyrion Music Server Startup options
@@ -265,7 +265,7 @@ pl.PortConflict=Konflikt portów
 ru.PortConflict=Конфликт портов
 sv.PortConflict=Portkonflikt
 
-cz.PortConflict_Description=Zjistili jsme problém.%n%nMohlo dojít ke konfliktu sítě.  Následující program již používá port 9000:
+cz.PortConflict_Description=Zjistili jsme problém.%n%nMohlo dojít ke konfliktu sítě. Následující program již používá port 9000:
 da.PortConflict_Description=Der er et problem.%n%nDer kan være en netværkskonflikt da følgende program allerede bruger port 9000:
 de.PortConflict_Description=Es wurde ein Problem erkannt.%n%nMöglicher Netzwerkkonflikt. Das folgende Programm nutzt bereits Port 9000:
 en.PortConflict_Description=We've detected a problem.%n%nThere may be a network conflict.  The following program is already using port 9000:
@@ -293,7 +293,7 @@ pl.PortConflict_Solution=Program Lyrion Music Server można skonfigurować do pr
 ru.PortConflict_Solution=Можно настроить выполнение Lyrion Music Server на неиспользуемом порту, например 9001.
 sv.PortConflict_Solution=Du kan konfigurera så att Lyrion Music Server körs på en port som inte används, t.ex. 9001.
 
-cz.PrefsExistButPortConflict=Zjistili jsme problém.%n%nLyrion Music Server používá port 9000 ke komunikaci přes vaši síť a může docházet ke konfliktu s jinou aplikací používající stejný port.%n%nPokud se objeví problémy se spuštěním Lyrion Music Server, zkuste editovat preferenční soubor Lyrion Music Server a změnit port na jinou hodnotu.%n%nK tomu hledejte "server.prefs" na vašem počítači a editujte tento soubor v poznámkovém bloku.  Najděte položku "httpport" a změňte ji z 9000 na 9010, někdy na 9100. Uložte a soubor zavřete.  Tím vyřešíte konflikt a umožníte úspěšný běh Lyrion Music Server.%n%nVíce informací naleznete na https://forums.slimdevices.com
+cz.PrefsExistButPortConflict=Zjistili jsme problém.%n%nLyrion Music Server používá port 9000 ke komunikaci přes vaši síť a může docházet ke konfliktu s jinou aplikací používající stejný port.%n%nPokud se objeví problémy se spuštěním Lyrion Music Serveru, zkuste editovat preferenční soubor Lyrion Music Serveru a změnit port na jinou hodnotu.%n%nPro provedení, hledejte „server.prefs“ na vašem počítači a editujte tento soubor v poznámkovém bloku. Najděte položku „httpport“ a změňte ji z 9000 na 9010, někdy na 9100. Uložte soubor a zavřete ho. Tím vyřešíte konflikt a umožníte úspěšný běh Lyrion Music Serveru.%n%nVíce informací naleznete na https://forums.lyrion.org
 da.PrefsExistButPortConflict=Der er opdaget et problem.%n%nLyrion Music Server bruger port 9000 til at kommunikere over dit netværk, men der er muligvis en konflikt med et andet program som bruger samme port.%n%nHvis du har problemer med at starte Lyrion Music Server, kan du redigere filen med indstillinger for Lyrion Music Server og der ændre portnummeret til et andet.%n%nDet gør du ved at finde filen "server.prefs" på computeren og redigere den i Notesblok. Find linjen med "httpport" og skift værdi fra 9000 til 9010 eller 9100. Gem filen og luk den. Det burde løse konflikten hvorefter Lyrion Music Server igen kan køre.%n%nDer er flere oplysninger på https://forums.slimdevices.com
 de.PrefsExistButPortConflict=Ein Problem wurde festgestellt.%n%nLyrion Music Server nutzt Port 9000 zur Kommunikation über das Netzwerk. Eventuell besteht ein Konflikt zwischen Lyrion Music Server und einer anderen Anwendung, die den gleichen Port nutzt.%n%nFalls beim Starten von Lyrion Music Server Probleme auftreten,  bearbeiten Sie die Lyrion Music Server-Einstellungsdatei und wählen Sie einen anderen Port.%n%nSuchen Sie dazu auf dem Computer die Datei "server.prefs" und bearbeiten Sie diese im Editor. Suchen Sie den Eintrag für "httpport" und wählen Sie Port 9010 oder 9100 statt 9000. Speichern und schließen Sie die Datei. Der Konflikt ist damit aufgehoben und Lyrion Music Server kann wieder ausgeführt werden.%n%nWeitere Informationen unter https://forums.slimdevices.com.
 en.PrefsExistButPortConflict=We've detected a problem.%n%nLyrion Music Server uses port 9000 to communicate over your network, and there may be a conflict with another application using the same port.%n%nIf you encounter problems starting Lyrion Music Server, try editing the Lyrion Music Server preference file and changing the port to some other value.%n%nTo do this, search for "server.prefs" on your computer and edit that file in notepad.  Find the entry for "httpport" and change it from 9000 to 9010, some 9100. Save and close the file.  This will solve the conflict and allow Lyrion Music Server to run successfully.%n%nFor more information, visit https://forums.slimdevices.com
@@ -307,7 +307,7 @@ pl.PrefsExistButPortConflict=Wykryto problem.%n%nProgram Lyrion Music Server uż
 ru.PrefsExistButPortConflict=Обнаружена проблема.%n%nLyrion Music Server взаимодействует по сети через порт 9000, и при использовании этого порта другим приложением возможен конфликт.%n%nПри возникновении проблем с запуском Lyrion Music Server попробуйте изменить файл настроек Lyrion Music Server, выбрав другой номер порта.%n%nДля этого найдите на компьютере файл "server.prefs" и измените его в Блокноте.  Найдите вхождение "httpport" и измените значение 9000 на 9010, или 9100. Сохраните и закройте файл.  Конфликт будет устранен, и Lyrion Music Server сможет успешно выполняться.%n%nПодробнее см. на сайте https://forums.slimdevices.com
 sv.PrefsExistButPortConflict=Ett problem har upptäckts.%n%nLyrion Music Server kommunicerar över nätverket via port 9000, men det verkar som om ett annat program använder samma port.%n%nOm det uppstår problem i Lyrion Music Server bör du redigera inställningsfilen och ändra portnumret till ett annat värde.%n%nSök efter server.prefs på din dator och redigera den filen i Anteckningar. Leta reda på posten httpport och ändra 9000 till 9010 eller 9100. Därefter sparar du filen och stänger den. På så vis kommer du till rätta med problemet och kan köra Lyrion Music Server felfritt.%n%nMer information finns på https://forums.slimdevices.com
 
-cz.ProbingPorts=Testování portů za účelem zjištění, jestli nejsou blokovány softwarem firewall
+cz.ProbingPorts=Testování portů za účelem zjištění, jestli nejsou blokovány softwarem firewallu
 da.ProbingPorts=Det undersøges om portene blokeres af firewallen
 de.ProbingPorts=Testen der Ports, um festzustellen, ob sie durch die Firewall-Software blockiert werden.
 en.ProbingPorts=Probing ports to see if they are being blocked by firewall software
@@ -335,7 +335,7 @@ pl.Problem=Problem
 ru.Problem=Проблема
 sv.Problem=Problem
 
-cz.ProblemUninstallingSLIMP3=Problém s odinstalováním softwaru SLIMP3:
+cz.ProblemUninstallingSLIMP3=Problém při odinstalování softwaru SLIMP3:
 da.ProblemUninstallingSLIMP3=Problem ved afinstallation af SLIMP3-softwaren:
 de.ProblemUninstallingSLIMP3=Problem bei Deinstallation von SLIMP3-Software:
 en.ProblemUninstallingSLIMP3=Problem uninstalling SLIMP3 software:
@@ -363,7 +363,7 @@ pl.ProblemUninstallingSlimServer=Problem z dezinstalacją oprogramowania SlimSer
 ru.ProblemUninstallingSlimServer=При удалении программы SlimServer возникла проблема:
 sv.ProblemUninstallingSlimServer=Problem med att avinstallera SlimServer-programvaran:
 
-cz.ProblemUninstallingSqueezeCenter=Problém s odinstalováním softwaru SqueezeCenter:
+cz.ProblemUninstallingSqueezeCenter=Problém při odinstalování softwaru SqueezeCenter:
 da.ProblemUninstallingSqueezeCenter=Problem ved afinstallation af SqueezeCenter-softwaren:
 de.ProblemUninstallingSqueezeCenter=Problem beim Deinstallieren der SqueezeCenter-Software:
 en.ProblemUninstallingSqueezeCenter=Problem uninstalling SqueezeCenter software:
@@ -391,7 +391,7 @@ pl.ProblemUninstallingSqueezboxServer=Problem z dezinstalacją oprogramowania Sq
 ru.ProblemUninstallingSqueezboxServer=При удалении программы Squeezbox Server возникла проблема:
 sv.ProblemUninstallingSqueezboxServer=Problem med att avinstallera Squeezbox Server-programvaran:
 
-cz.ProgressForm_Caption=Průvodce odstraňováním problému Lyrion Music Server
+cz.ProgressForm_Caption=Průvodce odstraňováním problému Lyrion Music Serveru
 da.ProgressForm_Caption=Lyrion Music Server-guiden Problemløsning
 de.ProgressForm_Caption=Lyrion Music Server - Assistent zur Fehlerbehebung
 en.ProgressForm_Caption=Lyrion Music Server Troubleshooting Wizard
@@ -405,7 +405,7 @@ pl.ProgressForm_Caption=Kreator rozwiązywania problemów z urządzeniem Lyrion 
 ru.ProgressForm_Caption=Мастер устранения неполадок Lyrion Music Server
 sv.ProgressForm_Caption=Felsökningsguide för Lyrion Music Server
 
-cz.ProgressForm_Description=Vyzkoušejme váš systém
+cz.ProgressForm_Description=Otestovat váš systém
 da.ProgressForm_Description=Systemet vil blive undersøgt
 de.ProgressForm_Description=Das System wird geprüft.
 en.ProgressForm_Description=Let's probe your system
@@ -433,7 +433,7 @@ pl.RegisterServices=Rejestrowanie usług
 ru.RegisterServices=Выполняется регистрация служб
 sv.RegisterServices=Registrerar tjänster
 
-cz.RegisterServicesDesc=Počkejte laskavě, dokud se nezkonfigurují služby Lyrion Music Server.
+cz.RegisterServicesDesc=Čekejte, prosím, dokud se nezkonfigurují služby Lyrion Music Serveru.
 da.RegisterServicesDesc=Vent lidt mens de nye Lyrion Music Server-tjenester bliver konfigureret.
 de.RegisterServicesDesc=Die neuen Lyrion Music Server-Dienste werden konfiguriert. Bitte warten.
 en.RegisterServicesDesc=Please wait while new Lyrion Music Server services are configured.
@@ -489,7 +489,7 @@ pl.Solution=Rozwiązanie
 ru.Solution=Решение
 sv.Solution=Lösning
 
-cz.SqueezeCenterTrayTool=Nástroj schránky Lyrion Music Server
+cz.SqueezeCenterTrayTool=Ikona Lyrion Music Serveru na systémové liště
 da.SqueezeCenterTrayTool=Lyrion Music Server-ikon i systembakken
 de.SqueezeCenterTrayTool=Lyrion Music Server-Taskleisten-Tool
 en.SqueezeCenterTrayTool=Lyrion Music Server Tray Tool
@@ -504,12 +504,13 @@ ru.SqueezeCenterTrayTool=Утилита панели задач Lyrion Music Ser
 sv.SqueezeCenterTrayTool=Lyrion Music Server-systemfältsverktyg
 
 Start_LMS=Start Lyrion Music Server (if not configured to run as a service)
+cz.Start_LMS=Spustit Lyrion Music Server (pokud není nakonfigurován jako služba)
 da.Start_LMS=Start Lyrion Music Server (når denne ikke er konfigureret som en tjeneste)
 de.Start_LMS=Starte Lyrion Music Server (wenn nicht als Dienst konfiguriert)
 fr.Start_LMS=Démarrer Lyrion Music Server (si non configuré pour s'exécuter en tant que service)
 nl.Start_LMS=Start Lyrion Music Server (als deze niet als service is geconfigureerd)
 
-cz.SqueezeCenterWebInterface=Webové rozhraní Lyrion Music Server
+cz.SqueezeCenterWebInterface=Webové rozhraní Lyrion Music Serveru
 da.SqueezeCenterWebInterface=Webbaseret brugerflade til Lyrion Music Server
 de.SqueezeCenterWebInterface=Lyrion Music Server-Web-Benutzeroberfläche
 en.SqueezeCenterWebInterface=Lyrion Music Server Web Interface
@@ -523,7 +524,7 @@ pl.SqueezeCenterWebInterface=Interfejs internetowy programu Lyrion Music Server
 ru.SqueezeCenterWebInterface=Веб-интерфейс Lyrion Music Server
 sv.SqueezeCenterWebInterface=Webbgränssnitt för Lyrion Music Server
 
-cz.StartupSqueezeCenterWebInterface=Spustit Webové rozhraní Lyrion Music Server
+cz.StartupSqueezeCenterWebInterface=Spustit webové rozhraní Lyrion Music Serveru
 da.StartupSqueezeCenterWebInterface=Start webbaseret brugerflade til Lyrion Music Server
 de.StartupSqueezeCenterWebInterface=Lyrion Music Server-Web-Benutzeroberfläche öffnen
 en.StartupSqueezeCenterWebInterface=Start Lyrion Music Server Web Interface
@@ -551,7 +552,7 @@ pl.StartupControlPanel=Uruchom panel sterowania program
 ru.StartupControlPanel=Запустить панель управления
 sv.StartupControlPanel=Starta Kontrollpanelen
 
-cz.Startup_Caption=Aktivátor služeb Lyrion Music Server
+cz.Startup_Caption=Správa služby Lyrion Music Serveru
 da.Startup_Caption=Lyrion Music Server Tjenesteaktivering
 de.Startup_Caption=Lyrion Music Server-Dienst verwalten
 en.Startup_Caption=Manage Lyrion Music Server Service
@@ -565,7 +566,7 @@ pl.Startup_Caption=Narzędzie włączające usługę programu Lyrion Music Serve
 ru.Startup_Caption=Микропрограмма включения служб Lyrion Music Server
 sv.Startup_Caption=Lyrion Music Server-tjänsteaktivering
 
-cz.Startup_CredentialsRequired=Když nezadáte vaše uživatelské jméno a heslo, Lyrion Music Server bude spuštěn jako "anonymní" uživatel systému a možná nebudete mít přístup do vaší hudební knihovny. Chcete pokračovat jako anonymní uživatel?
+cz.Startup_CredentialsRequired=Když nezadáte vaše uživatelské jméno a heslo, Lyrion Music Server bude spuštěn jako „anonymní“ uživatel systému a možná nebudete mít přístup do vaší hudební knihovny. Chcete pokračovat jako anonymní uživatel?
 da.Startup_CredentialsRequired=Hvis du ikke angiver dit brugernavn og din adgangskode, vil Lyrion Music Server køre som en anonym systembruger og muligvis ikke have adgang til musikbiblioteket. Vil du fortsætte med at køre som anonym bruger?
 de.Startup_CredentialsRequired=Wenn Sie Benutzername und Kennwort nicht eingeben, wird Lyrion Music Server als "anonymer" Systembenutzer ausgeführt und hat evtl. keinen Zugriff auf Ihre Musiksammlung. Soll Lyrion Music Server als anonymer Benutzer ausgeführt werden?
 en.Startup_CredentialsRequired=If you don't enter your user name and password, Lyrion Music Server will run as an "anonymous" system user and you may not have access to your music library. Do you want to continue to run as an anonymous user?
@@ -579,7 +580,7 @@ pl.Startup_CredentialsRequired=Jeśli nie wprowadzisz nazwy użytkownika i hasł
 ru.Startup_CredentialsRequired=Если не ввести имя пользователя и пароль, Lyrion Music Server будет выполняться для анонимного пользователя, и медиатека может быть недоступна. Продолжить в качестве анонимного пользователя?
 sv.Startup_CredentialsRequired=Om du inte anger användarnamn och lösenord kommer Lyrion Music Server att köras som en anonym systemanvändare och du får kanske inte tillgång till musikbiblioteket. Vill du fortsätta köra som anonym användare?
 
-cz.Startup_Description=Konfigurovat službu Lyrion Music Server Windows
+cz.Startup_Description=Konfigurovat službu Lyrion Music Server
 da.Startup_Description=Konfigurer Lyrion Music Server Windows-tjeneste
 de.Startup_Description=Lyrion Music Server Dienst konfigurieren
 en.Startup_Description=Configure Lyrion Music Server service
@@ -593,7 +594,7 @@ pl.Startup_Description=Skonfiguruj usługę Windows programu Lyrion Music Server
 ru.Startup_Description=Настроить службу Lyrion Music Server Windows
 sv.Startup_Description=Konfigurera Lyrion Music Server Windows-tjänsten
 
-cz.Startup_LabelAtBootDesc_Caption0=Aby Lyrion Music Server mohl získat přístup k vaší hudební knihovně, musíte zadat vaše uživatelské jméno a heslo do Windows.
+cz.Startup_LabelAtBootDesc_Caption0=Aby Lyrion Music Server mohl získat přístup k vaší hudební knihovně na síťovém sdílení (např. NAS), musíte zadat vaše uživatelské jméno a heslo do Windows.
 da.Startup_LabelAtBootDesc_Caption0=Du skal angive dit brugernavn og din adgangskode til Windows sådan at Lyrion Music Server kan få adgang til musikbiblioteket.
 de.Startup_LabelAtBootDesc_Caption0=Sie müssen Ihren Windows-Benutzernamen und das -Kennwort eingeben, falls Lyrion Music Server auf eine Musiksammlung auf einer Netzwerkfreigabe (z.B. NAS) zugreifen kann.
 en.Startup_LabelAtBootDesc_Caption0=If you want Lyrion Music Server to access your library on a network share (eg. NAS), you'll need to enter your Windows user name and password.
@@ -621,7 +622,7 @@ pl.Startup_LabelPassword1_Caption0=Hasło:
 ru.Startup_LabelPassword1_Caption0=Пароль:
 sv.Startup_LabelPassword1_Caption0=Lösenord:
 
-cz.Startup_LabelPassword2_Caption0=Potvrdit heslo:
+cz.Startup_LabelPassword2_Caption0=Potvrzení hesla:
 da.Startup_LabelPassword2_Caption0=Bekræft adgangskode:
 de.Startup_LabelPassword2_Caption0=Kennwort bestätigen:
 en.Startup_LabelPassword2_Caption0=Confirm password:
@@ -649,7 +650,7 @@ pl.Startup_LabelUsername_Caption0=Nazwa użytkownika:
 ru.Startup_LabelUsername_Caption0=Имя пользователя:
 sv.Startup_LabelUsername_Caption0=Användarnamn:
 
-cz.Startup_PasswordsDontMatch=Vaše hesla se neshodují, zkuste laskavě znovu.
+cz.Startup_PasswordsDontMatch=Vaše hesla se neshodují, zkuste to prosím znovu.
 da.Startup_PasswordsDontMatch=Adgangskoderne er ikke ens. Prøv igen.
 de.Startup_PasswordsDontMatch=Die eingegebenen Kennwörter stimmen nicht überein. Wiederholen Sie die Eingabe.
 en.Startup_PasswordsDontMatch=Your passwords don't match, please try again.
@@ -678,12 +679,14 @@ ru.Startup_RadioAtBoot_Caption0=Запускать Lyrion Music Server &авто
 sv.Startup_RadioAtBoot_Caption0=Starta Lyrion Music Server &automatiskt när datorn startas.
 
 Startup_RadioAtBootCustom_Caption0=Start Lyrion Music Server &automatically using custom credentials.
+cz.Startup_RadioAtBootCustom_Caption0=Spustit Lyrion Music Server &automaticky s vlastními přihlašovacími údaji.
 da.Startup_RadioAtBootCustom_Caption0=Start Lyrion Music Server automatisk med loginoplysninger.
 de.Startup_RadioAtBootCustom_Caption0=Lyrion Music Server &automatisch mit Anmeldedaten starten.
 fr.Startup_RadioAtBootCustom_Caption0=Démarrer le Lyrion Music Server &automatiquement avec vos informations d'authentification.
 nl.Startup_RadioAtBootCustom_Caption0=Lyrion Music Server &automatisch starten met aangepaste referenties.
 
 Startup_DisableService_Caption0=Disable Lyrion Music Server background service.
+cz.Startup_DisableService_Caption0=Zakázat službu Lyrion Music Server na pozadí.
 da.Startup_DisableService_Caption0=Deaktivér Lyrion Music Server baggrundstjeneste.
 de.Startup_DisableService_Caption0=Lyrion Music Server Hintergrunddienst deaktivieren.
 fr.Startup_DisableService_Caption0=Désactiver le service d'arrière-plan du Lyrion Music Server.
@@ -703,7 +706,7 @@ pl.SummaryForm_Description=Podsumowanie
 ru.SummaryForm_Description=Сводка
 sv.SummaryForm_Description=Översikt
 
-cz.UninstallPrefs=Chcete vymazat také všechny preference a protokolovací soubory?
+cz.UninstallPrefs=Chcete vymazat také všechny předvolby a protokolové soubory?
 da.UninstallPrefs=Vil du slette alle indstillinger og logfiler?
 de.UninstallPrefs=Wollen Sie die Einstellungs- und Logdateien ebenfalls entfernen?
 en.UninstallPrefs=Do you want to delete all preferences and log files as well?
@@ -718,12 +721,14 @@ ru.UninstallPrefs=Удалить все настройки и файлы жур�
 sv.UninstallPrefs=Vill du ta bort alla inställningar och loggfiler?
 
 RemoveLegacyFiles=Removing legacy files from earlier installations...
+cz.RemoveLegacyFiles=Odstraňování starých souborů z předchozích instalací...
 da.RemoveLegacyFiles=Fjerner gamle filer fra tidligere installationer...
 de.RemoveLegacyFiles=Entferne nicht mehr benötigte Dateien...
 fr.RemoveLegacyFiles=Suppression des fichiers des installations précédentes...
 nl.RemoveLegacyFiles=Oude bestanden van eerdere installaties verwijderen...
 
 RemoveLegacyFilesWarning=Please be patient - this task can take several minutes.
+cz.RemoveLegacyFilesWarning=Prosím vyčkejte - tato úloha může trvat několik minut.
 de.RemoveLegacyFilesWarning=Vær venligst tålmodig - dette kan tage flere minutter.
 de.RemoveLegacyFilesWarning=Bitte haben Sie Geduld - diese Aktion kann mehrere Minuten dauern.
 fr.RemoveLegacyFilesWarning=Soyez patient : cette tâche peut prendre plusieurs minutes.
@@ -743,7 +748,7 @@ pl.UninstallSqueezeCenter=Odinstaluj program Lyrion Music Server
 ru.UninstallSqueezeCenter=Удалить Lyrion Music Server
 sv.UninstallSqueezeCenter=Avinstallera Lyrion Music Server
 
-cz.UnregisterServices=Rušení registrace služeb
+cz.UnregisterServices=Příprava na instalaci
 da.UnregisterServices=Fjerner registreringen af tjenester
 de.UnregisterServices=Registrierung der Dienste wird aufgehoben
 en.UnregisterServices=Preparing for installation
@@ -757,7 +762,7 @@ pl.UnregisterServices=Wyrejestrowywanie usług
 ru.UnregisterServices=Выполняется отмена регистрации служб
 sv.UnregisterServices=Avregistrerar tjänster
 
-cz.UnregisterServicesDesc=Vyčkejte laskavě, dokud nedojde k odinstalování předchozích služeb Lyrion Music Server.
+cz.UnregisterServicesDesc=Počkejte, prosím, dokud nedojde k odinstalování předchozích služeb Lyrion Music Serveru.
 da.UnregisterServicesDesc=Vent lidt mens de gamle Lyrion Music Server-tjenester bliver afinstalleret.
 de.UnregisterServicesDesc=Vorherige Lyrion Music Server-Dienste werden deinstalliert. Bitte warten.
 en.UnregisterServicesDesc=Please wait while Lyrion Music Server installation is being prepared.
@@ -771,7 +776,7 @@ pl.UnregisterServicesDesc=Poczekaj, trwa dezinstalacja wcześniejszych usług pr
 ru.UnregisterServicesDesc=Подождите, выполняется удаление предыдущих служб Lyrion Music Server.
 sv.UnregisterServicesDesc=Vänta tills tidigare Lyrion Music Server-tjänster har avinstallerats.
 
-cz.WaitingForServices=Čekání na zastavení Lyrion Music Server...
+cz.WaitingForServices=Čekání na zastavení Lyrion Music Serveru...
 da.WaitingForServices=Venter på at Lyrion Music Server stopper...
 de.WaitingForServices=Lyrion Music Server wird angehalten. Bitte warten...
 en.WaitingForServices=Waiting for Lyrion Music Server to stop...
@@ -786,44 +791,52 @@ ru.WaitingForServices=Lyrion Music Server останавливается...
 sv.WaitingForServices=Väntar på att Lyrion Music Server stoppas ...
 
 PleaseInstallVCRedist2010=In order to install Lyrion Music Server on this computer you'll have to install the Microsoft Visual C++ 2010 Redistributable Package (x86).
+cz.PleaseInstallVCRedist2010=Aby bylo možné nainstalovat Lyrion Music Server na tento počítač, musíte nainstalovat Microsoft Visual C++ 2010 Redistributable Package (x86).
 da.PleaseInstallVCRedist2010=For at kunne installere Lyrion Music Server på denne computer må du installere Microsoft Visual C++ 2010 Redistributable Package (x86).
 fr.PleaseInstallVCRedist2010=Pour installer le Lyrion Music Server sur cet ordinateur, vous devrez installer le package redistribuable Microsoft Visual C++ 2010 (x86).
 
 FindVCRedist2010Online=Please download it from the following link:%n%nhttps://www.microsoft.com/download/en/details.aspx?id=8328
+cz.FindVCRedist2010Online=Stáhněte si ho prosím z následujícího odkazu:%n%nhttps://www.microsoft.com/download/en/details.aspx?id=8328
 da.FindVCRedist2010Online=Venligst hent pakken fra følgende link: %n%nhttps://www.microsoft.com/download/en/details.aspx?id=8328
 fr.FindVCRedist2010Online=Veuillez le télécharger à partir du lien suivant :%n%nhttps://www.microsoft.com/download/en/details.aspx?id=8328
 
 FindVCRedist=You can find a copy of the package in the Software share of your WHS.
+cz.FindVCRedist=Kopii balíčku najdete ve sdílené složce Software vašeho WHS.
 da.FindVCRedist=Du kan finde en kopi af pakken i din WHS software share.
 fr.FindVCRedist=Vous pouvez trouver une copie du package dans le partage logiciel de votre WHS.
 
 StrawberryPerl=Strawberry Perl
 
 NeedStrawberryPerl=Strawberry Perl is required to run Lyrion Music Server
+cz.NeedStrawberryPerl=Strawberry Perl je vyžadován pro běh Lyrion Music Serveru
 da.NeedStrawberryPerl=Strawberry Perl er påkrævet for at kunne køre Lyrion Music Server
 de.NeedStrawberryPerl=Strawberry Perl wird für die Ausführung von Lyrion Music Server benötigt
 fr.NeedStrawberryPerl=Strawberry Perl est nécessaire pour exécuter le Lyrion Music Server
 nl.NeedStrawberryPerl=Strawberry Perl is nodig om Lyrion Music Server uit te voeren
 
 DownloadingPerl=Installation of Strawberry Perl is only required the first time you install.
+cz.DownloadingPerl=Instalace prostředí Strawberry Perl je vyžadována pouze při první instalaci.
 da.DownloadingPerl=Installation af Strawberry Perl er kun påkrævet første gang du installerer.
 de.DownloadingPerl=Die Installation von Strawberry Perl wird einmalig ausgeführt.
 fr.DownloadingPerl=L'installation de Strawberry Perl n'a lieu qu'une seule fois.
 nl.DownloadingPerl=De installatie van Strawberry Perl is alleen nodig bij de eerste installatie.
 
 InstallingPerl=Installing Strawberry Perl... This can take a while - please be patient!
+cz.InstallingPerl=Instalace prostředí Strawberry Perl... Může to chvíli trvat - buďte prosím trpěliví!
 da.InstallingPerl=Installerer Strawberry Perl... Dette kan tage tid - vær venligst tålmodig!
 de.InstallingPerl=Installiere Strawberry Perl... Dies kann eine Weile dauern - danke für die Geduld!
 fr.InstallingPerl=Installation de Strawberry Perl... Cela peut prendre du temps. Merci pour votre patience !
 nl.InstallingPerl=Aardbei Perl installeren... Dit kan even duren - wees geduldig!
 
 ServiceEnablerNeedsLMS=Lyrion Music Server can't be found. Is it correctly installed?
+cz.ServiceEnablerNeedsLMS=Lyrion Music Server nebyl nalezen. Je správně nainstalován?
 da.ServiceEnablerNeedsLMS=Lyrion Music Server er ikke fundet. Er det korrekt installeret?
 de.ServiceEnablerNeedsLMS=Lyrion Music Server kann nicht gefunden werden. Ist er korrekt installiert?
 fr.ServiceEnablerNeedsLMS=Le Lyrion Music Server est introuvable. Est-il installé correctement ?
 nl.ServiceEnablerNeedsLMS=Lyrion Music Server kan niet worden gevonden. Is het correct geïnstalleerd?
 
 MigrateToWin64=You seem to be running Windows 64-bit. %n%nWe recommend you install the 64-bit version of Lyrion Music Server. %n%nPress "Yes" to get more information, %n"No" to continue, or %n "Cancel" to abort the installion.
+cz.MigrateToWin64=Zdá se, že používáte 64bitovou verzi Windows. %n%nDoporučujeme nainstalovat 64bitovou verzi Lyrion Music Serveru. %n%nStiskněte „Ano“ pro více informací, %n„Ne“ pro pokračování, nebo %n„Zrušit“ pro přerušení instalace.
 da.MigrateToWin64=Det ser ud til at du kører Windows 64-bit. %n%nVi anbefaler at du installerer 64-bit versionen af Lyrion Music Server. %n%nTryk "Yes" for mere information,  %n"No" for at fortsætte, eller %n "Cancel" for at afbryde installionen.
 de.MigrateToWin64=Sie scheinen Windows 64-bit zu verwenden. %n%nWir empfehlen, Lyrion Music Server 64-bit zu installieren. %n%nDrücken Sie "Ja" für weitere Informationen, %n"Nein" um die Installation weiter zu führen oder %n"Abbrechen" um die Installation abzubrechen.
 fr.MigrateToWin64=Vous semblez utiliser Windows 64-bit. %n%nNous vous recommandons d'installer la version 64-bits de Lyrion Music Server. %n%nAppuyez sur « Oui » pour obtenir plus d'informations, %nsur « Non » pour continuer, ou %nsur « Annuler » pour interrompre l'installation.
@@ -833,18 +846,21 @@ MigrateToWin64InfoUrl=https://lyrion.org/reference/migrate-win32-win64/
 de.MigrateToWin64InfoUrl=https://lyrion.org/reference/migrate-win32-win64-de/
 
 ProblemStartingLMS=There was a problem starting Lyrion Music Server
+cz.ProblemStartingLMS=Vyskytl se problém při spouštění Lyrion Music Serveru
 da.ProblemStartingLMS=Der opstod et problem med at starte Lyrion Music Server
 de.ProblemStartingLMS=Es gab ein Problem beim Starten von Lyrion Music Server
 fr.ProblemStartingLMS=Un problème est survenu lors du démarrage du Lyrion Music Server
 nl.ProblemStartingLMS=Er is een probleem opgetreden bij het starten van Lyrion Music Server
 
 TroubleShootServiceStart=Choose "More Information" to see further information about how to investigate the issue, or Close to exit.
+cz.TroubleShootServiceStart=Zvolte „Více informací“ pro zobrazení dalších informací o tom, jak problém prošetřit, nebo Zavřít pro ukončení.
 da.TroubleShootServiceStart=Vælg "Mere information" for at se yderligere information om, hvordan du undersøger problemet, eller Luk for at afslutte.
 de.TroubleShootServiceStart=Wählen Sie "Weitere Informationen", um weitere Informationen zur Untersuchung des Problems zu erhalten, oder Schließen, um zu beenden.
 fr.TroubleShootServiceStart=Choisissez "Plus d'informations" pour voir des informations supplémentaires sur la façon d'investiguer le problème, ou Fermer pour quitter.
 nl.TroubleShootServiceStart=Kies "Meer informatie" om verdere informatie te zien over hoe het probleem kan worden onderzocht, of Sluiten om af te sluiten.
 
 MoreInformation=&More Information
+cz.MoreInformation=&Více informací
 da.MoreInformation=&Mere information
 de.MoreInformation=&Weitere Informationen
 fr.MoreInformation=&Plus d'informations
@@ -853,6 +869,7 @@ nl.MoreInformation=&Meer informatie
 TroubleShootServiceStartURL=https://forums.slimdevices.com/forum/user-forums/logitech-media-server/1745977
 
 Close=&Close
+cz.Close=&Zavřít
 da.Close=&Luk
 de.Close=&Schließen
 fr.Close=&Fermer

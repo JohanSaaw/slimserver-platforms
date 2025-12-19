@@ -1,4 +1,5 @@
 PLUGIN_DOCKER_REPO_WARNING
+	CS	Informace o migraci Docker image
 	DA	Docker Image migreringsinformation
 	DE	Docker Image Migrationsinformation
 	EN	Docker Image Migration Info
@@ -6,6 +7,7 @@ PLUGIN_DOCKER_REPO_WARNING
 	NL	Info voor Docker-imagemigratie
 
 PLUGIN_DOCKER_REPO_WARNING_DESC
+	CS	Informace o migraci Docker image z „logitechmediaserver“ na „lyrionmusicserver“.
 	DA	Information om migrering fra "logitechmediaserver" til "lyrionmusicserver".
 	DE	Informationen zur Migration von "logitechmediaserver" zu "lyrionmusicserver".
 	EN	Information about the Docker image migration from "logitechmediaserver" to "lyrionmusicserver".
@@ -13,6 +15,7 @@ PLUGIN_DOCKER_REPO_WARNING_DESC
 	NL	Informatie over de Docker image-migratie van "logitechmediaserver" naar "lyrionmusicserver".
 
 PLUGIN_DOCKER_REPO_WARNING_INFO
+	CS	Zdá se, že používáte Docker image „logitechmediaserver“. Tento image již nebude od listopadu 2024 poskytován. Vytvořte prosím nový kontejner s použitím nového image „lmscommunity/lyrionmusicserver“.
 	DA	Du ser ud til at køre "logitechmediaserver" Docker-image. Dette image vil ikke længere blive leveret fra november '24. Opret en ny container ved at bruge det nye "lmscommunity/lyrionmusicserver"-image i stedet.
 	DE	Sie scheinen das "logitechmediaserver" Docker Image zu verwenden. Dieses wird im November 2024 eingestellt. Bitte erstellen Sie statt dessen einen neuen Container basierend auf "lmscommunity/lyrionmusicserver".
 	EN	You seem to be running the "logitechmediaserver" Docker image. This image will not longer be provided starting November '24. Please create a new container using the new "lmscommunity/lyrionmusicserver" image instead.
