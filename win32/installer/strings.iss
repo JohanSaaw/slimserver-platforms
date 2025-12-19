@@ -268,7 +268,7 @@ sv.PortConflict=Portkonflikt
 cz.PortConflict_Description=Zjistili jsme problém.%n%nMohlo dojít ke konfliktu sítě.  Následující program již používá port 9000:
 da.PortConflict_Description=Der er et problem.%n%nDer kan være en netværkskonflikt da følgende program allerede bruger port 9000:
 de.PortConflict_Description=Es wurde ein Problem erkannt.%n%nMöglicher Netzwerkkonflikt. Das folgende Programm nutzt bereits Port 9000:
-en.PortConflict_Description=We've detected a problem.%n%nThere may be a network conflict.  The following program is already using port 9000:
+en.PortConflict_Description=We've detected a problem.%n%nThere may be a network conflict. The following program is already using port 9000:
 es.PortConflict_Description=Hemos detectado un problema.%n%nPuede existir un conflicto de red. El siguiente programa ya usa el puerto 9000:
 fi.PortConflict_Description=Havaittiin ongelma.%n%nSaattaa esiintyä verkon ristiriita. Portti 9000 on jo seuraavan ohjelman käytössä:
 fr.PortConflict_Description=Un problème a été détecté.%n%nUn conflit réseau est peut-être présent. Le programme suivant utilise déjà le port 9000 :
@@ -276,7 +276,7 @@ it.PortConflict_Description=È stato rilevato un problema.%n%nPotrebbe essersi v
 nl.PortConflict_Description=We hebben een probleem gedetecteerd.%n%nEr is misschien een netwerkconflict. Poort 9000 wordt al door het volgende programma gebruikt:
 no.PortConflict_Description=Det ble oppdaget et problem.%n%nDet kan ha oppstått en nettverkskonflikt. Følgende program bruker allerede port 9000:
 pl.PortConflict_Description=Wykryto problem.%n%nByć może występuje konflikt sieci. Następujący program już używa portu 9000:
-ru.PortConflict_Description=Обнаружена проблема.%n%nВозможно, возник сетевой конфликт.  Порт 9000 уже используется следующей программой:
+ru.PortConflict_Description=Обнаружена проблема.%n%nВозможно, возник сетевой конфликт. Порт 9000 уже используется следующей программой:
 sv.PortConflict_Description=Ett problem har upptäckts.%n%nDet kan röra sig om en nätverkskonflikt. Följande program använder redan port 9000:
 
 cz.PortConflict_Solution=Můžete nakonfigurovat Lyrion Music Server tak, aby běžel na nepoužívaném portu, například 9001.
@@ -603,7 +603,7 @@ fr.Startup_LabelAtBootDesc_Caption0=Si vous souhaitez que le Lyrion Music Server
 it.Startup_LabelAtBootDesc_Caption0=Per consentire l'accesso di Lyrion Music Server alla libreria musicale è necessario immettere il nome utente e la password Windows.
 nl.Startup_LabelAtBootDesc_Caption0=Voer je Windows-gebruikersnaam en -wachtwoord in om Lyrion Music Server toegang tot je muziekcollectie te geven.
 no.Startup_LabelAtBootDesc_Caption0=Du må oppgi Windows-brukernavn og -passord for at Lyrion Music Server skal kunne få tilgang til musikkbiblioteket ditt.
-pl.Startup_LabelAtBootDesc_Caption0=Należy wprowadzić nazwę użytkownika systemu Windows  i hasło, aby program Lyrion Music Server mógł uzyskać dostęp do biblioteki muzyki.
+pl.Startup_LabelAtBootDesc_Caption0=Należy wprowadzić nazwę użytkownika systemu Windows i hasło, aby program Lyrion Music Server mógł uzyskać dostęp do biblioteki muzyki.
 ru.Startup_LabelAtBootDesc_Caption0=Введите имя пользователя и пароль Windows, чтобы медиатека стала доступна для Lyrion Music Server.
 sv.Startup_LabelAtBootDesc_Caption0=Ange Windows-användarnamn och -lösenord så att Lyrion Music Server kan få tillgång till musikbiblioteket.
 
@@ -815,7 +815,7 @@ InstallingPerl=Installing Strawberry Perl... This can take a while - please be p
 da.InstallingPerl=Installerer Strawberry Perl... Dette kan tage tid - vær venligst tålmodig!
 de.InstallingPerl=Installiere Strawberry Perl... Dies kann eine Weile dauern - danke für die Geduld!
 fr.InstallingPerl=Installation de Strawberry Perl... Cela peut prendre du temps. Merci pour votre patience !
-nl.InstallingPerl=Aardbei Perl installeren... Dit kan even duren - wees geduldig!
+nl.InstallingPerl=Strawberry Perl installeren... Dit kan even duren - wees geduldig!
 
 ServiceEnablerNeedsLMS=Lyrion Music Server can't be found. Is it correctly installed?
 da.ServiceEnablerNeedsLMS=Lyrion Music Server er ikke fundet. Er det korrekt installeret?
@@ -824,7 +824,7 @@ fr.ServiceEnablerNeedsLMS=Le Lyrion Music Server est introuvable. Est-il install
 nl.ServiceEnablerNeedsLMS=Lyrion Music Server kan niet worden gevonden. Is het correct geïnstalleerd?
 
 MigrateToWin64=You seem to be running Windows 64-bit. %n%nWe recommend you install the 64-bit version of Lyrion Music Server. %n%nPress "Yes" to get more information, %n"No" to continue, or %n "Cancel" to abort the installion.
-da.MigrateToWin64=Det ser ud til at du kører Windows 64-bit. %n%nVi anbefaler at du installerer 64-bit versionen af Lyrion Music Server. %n%nTryk "Yes" for mere information,  %n"No" for at fortsætte, eller %n "Cancel" for at afbryde installionen.
+da.MigrateToWin64=Det ser ud til at du kører Windows 64-bit. %n%nVi anbefaler at du installerer 64-bit versionen af Lyrion Music Server. %n%nTryk "Yes" for mere information, %n"No" for at fortsætte, eller %n "Cancel" for at afbryde installionen.
 de.MigrateToWin64=Sie scheinen Windows 64-bit zu verwenden. %n%nWir empfehlen, Lyrion Music Server 64-bit zu installieren. %n%nDrücken Sie "Ja" für weitere Informationen, %n"Nein" um die Installation weiter zu führen oder %n"Abbrechen" um die Installation abzubrechen.
 fr.MigrateToWin64=Vous semblez utiliser Windows 64-bit. %n%nNous vous recommandons d'installer la version 64-bits de Lyrion Music Server. %n%nAppuyez sur « Oui » pour obtenir plus d'informations, %nsur « Non » pour continuer, ou %nsur « Annuler » pour interrompre l'installation.
 nl.MigrateToWin64=Het lijkt erop dat u Windows 64-bits gebruikt. %n%nWij raden u aan de 64-bits versie van Lyrion Music Server te installeren. %n%nDruk op "Yes" voor meer informatie, %n"No" om door te gaan, of %n"Cancel" om de installatie af te breken.
@@ -850,7 +850,7 @@ de.MoreInformation=&Weitere Informationen
 fr.MoreInformation=&Plus d'informations
 nl.MoreInformation=&Meer informatie
 
-TroubleShootServiceStartURL=https://forums.slimdevices.com/forum/user-forums/logitech-media-server/1745977
+TroubleShootServiceStartURL=https://forums.lyrion.org/forum/user-forums/logitech-media-server/1745977
 
 Close=&Close
 da.Close=&Luk
