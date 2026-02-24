@@ -36,9 +36,9 @@ anything, but it needs the string ".conf" at the end of the name, e.g.
 lyrion_changed_config.conf
 
 You can create one or more drop in files in that directory. You can have one or
-changes to the configuration in the files. Remember that the files are read in
-lexicographical order so that the files read last overrides the files read
-earlier if they have overlapping configration statements.
+more changes to the configuration in the files. Remember that the files are read
+in lexicographic order so that the files read last overrides the files read
+earlier if they have overlapping configuration statements.
 
 NOTE: NEVER MAKE ANY CHANGES TO THE UNIT FILE DELIVERED BY RPM PACKAGE IN THE
       LOCATION /usr/lib/systemd/system/lyrionmusicserver.service. ANY CHANGES IN
@@ -59,8 +59,9 @@ Environment="LYRION_ADDITIONAL_ARGS="
 These environment variables are used further down in the unit file in the start
 command.
 
-You can change the value of the four first variables and add any other command 
-line parameter to the start command of the Lyrion Music Server by adding one or
+You can change the Lyrion start-up command by changing the value of the four 
+first variables here above and add any other command line parameter to the start
+command by using the variable LYRION_ADDITIONAL_ARGS by adding one or
 more drop in files in /etc/systemd/system/lyrionmusicserver.service.d as 
 described here above.
 
