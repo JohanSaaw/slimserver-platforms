@@ -1,9 +1,14 @@
+# We rely on some of the settings made
+# in the global logrotate.conf. That way
+# the set-up will be in line with the 
+# idifferent distribution's defaults.
 /var/log/lyrionmusicserver/server.log {
     missingok
     notifempty
     sharedscripts
     postrotate
-        /bin/kill -USR1 `pgrep lyrionmusicserver >/dev/null 2>&1` >/dev/null 2>&1 || true
+        # send USR1 to lyriuonmusicserver PID to reset logging
+        /bin/kill -USR1 `pgrep lyrionmusicser 2>&1` >/dev/null 2>&1 || true
     endscript
 }
 
