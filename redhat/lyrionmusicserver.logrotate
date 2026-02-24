@@ -7,7 +7,7 @@
     notifempty
     sharedscripts
     postrotate
-        # send USR1 to lyriuonmusicserver PID to reset logging
+        # send USR1 to lyrionmusicserver PID to reset logging
         /bin/kill -USR1 `pgrep lyrionmusicser 2>&1` >/dev/null 2>&1 || true
     endscript
 }
