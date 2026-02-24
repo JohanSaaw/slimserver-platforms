@@ -1,7 +1,7 @@
 # We rely on some of the settings made
 # in the global logrotate.conf. That way
 # the set-up will be in line with the 
-# idifferent distribution's defaults.
+# different distribution's defaults.
 /var/log/lyrionmusicserver/server.log {
     missingok
     notifempty
