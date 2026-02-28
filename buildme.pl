@@ -634,9 +634,9 @@ sub buildRPM {
 
 	## Copy the various SPEC< Config, etc files into the right dirs...
         copy("$buildDir/platforms/redhat/lyrionmusicserver.config", "$buildDir/rpm/SOURCES");
-        copy("$buildDir/platforms/redhat/lyrionmusicserver.init", "$buildDir/rpm/SOURCES");
         copy("$buildDir/platforms/redhat/lyrionmusicserver.logrotate", "$buildDir/rpm/SOURCES");
         copy("$buildDir/platforms/redhat/lyrionmusicserver.service", "$buildDir/rpm/SOURCES");
+		copy("$buildDir/platforms/redhat/lyrionmusicserver.preset", "$buildDir/rpm/SOURCES");
         copy("$buildDir/platforms/redhat/README.systemd", "$buildDir/rpm/SOURCES");
         copy("$buildDir/platforms/redhat/README.rebranding", "$buildDir/rpm/SOURCES");
         copy("$buildDir/platforms/redhat/lyrionmusicserver.spec", "$buildDir/rpm/SPECS");
