@@ -88,10 +88,13 @@ Source3:	%{shortname}.logrotate
 Source4:	%{shortname}.service
 Source5:	README.systemd
 Source6:        README.rebranding
+Source7:        %{shortname}.preset
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Vendor:		Lyrion Community
 
 
+BuildRequires:   systemd-rpm-macros
+%systemd_requires
 Requires(pre):   /usr/bin/getent
 Requires(pre):   /usr/bin/touch
 Requires(pre):   /usr/sbin/groupadd
@@ -102,8 +105,21 @@ Requires(post):  /usr/bin/ln
 Requires(post):  /usr/bin/mv
 Requires(post):  /usr/bin/rm
 Requires(post):  /usr/sbin/usermod
-Requires:        perl >= 5.10.0
-%systemd_requires
+
+# The SUSE and Fedora/RedHat universes have decided differently 
+# on how PERL returns version numbers. The following line
+# works on Fedora/RedHat but not on SUSE.
+#Requires: (perl(:VERSION) >= 5.22 and perl(:VERSION) < 5.43)
+# The following line works on SUSE but not on Fedore/RedHat flavours
+#Requires: (perl >= 5.22 and perl < 5.43)
+# The following 2 lines work on SUSE but not on Fedora/RedHat.
+#Requires: perl >= 5.22
+#Conflicts: perl >= 5.43
+# It leaves this possibility if we want to have a require statement
+# that requires PERL higher than 5.22 but lower than 5.43. This works
+# on both SUSE and Fedora/RedHat.
+Requires: (perl(:MODULE_COMPAT_5.22.0) or perl(:MODULE_COMPAT_5.24.0) or perl(:MODULE_COMPAT_5.26.0) or perl(:MODULE_COMPAT_5.28.0) or perl(:MODULE_COMPAT_5.30.0) or perl(:MODULE_COMPAT_5.32.0) or perl(:MODULE_COMPAT_5.34.0) or perl(:MODULE_COMPAT_5.36.0) or perl(:MODULE_COMPAT_5.38.0) or perl(:MODULE_COMPAT_5.40.0) or perl(:MODULE_COMPAT_5.42.0))
+
 Recommends:      perl(IO::Socket::SSL)
 
 Provides:	%{src_basename} = %{version}-%{release}
@@ -145,7 +161,8 @@ rm -rf CPAN/arch/*/MSWin32-x86-multi-thread
 rm -rf $RPM_BUILD_ROOT
 
 # FHS compatible directory structure
-mkdir -p $RPM_BUILDROOT%{_unitdir}
+mkdir -p $RPM_BUILD_ROOT%{_unitdir}
+mkdir -p $RPM_BUILD_ROOT%{_presetdir}
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/%{shortname}
 mkdir -p $RPM_BUILD_ROOT%{_usr}/lib/perl5/vendor_perl
@@ -187,6 +204,7 @@ install -Dp -m644 %SOURCE3 $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{shortname
 install -Dp -m644 %SOURCE4 $RPM_BUILD_ROOT%{_unitdir}/%{shortname}.service
 install -Dp -m644 %SOURCE5 $RPM_BUILD_ROOT%{_datadir}/%{shortname}/README.systemd
 install -Dp -m644 %SOURCE6 $RPM_BUILD_ROOT%{_datadir}/%{shortname}/README.rebranding
+install -Dp -m644 %SOURCE7 $RPM_BUILD_ROOT%{_presetdir}/50-%{shortname}.preset
 touch $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/server.prefs
 touch $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/log.conf
 cp -p convert.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{shortname}
@@ -280,7 +298,10 @@ function checkConfigMigration () {
    return 0
 }
 
+test -f /tmp/squeezerpmdebug && echo "pre script"
 test -f /tmp/squeezerpmdebug && set -x
+
+# Create user and group if needed.
 /usr/bin/getent group %{groupd} >/dev/null || /usr/sbin/groupadd -r %{groupd}
 /usr/bin/getent passwd %{userd} >/dev/null || \
 /usr/sbin/useradd -r -g %{groupd} -d %{_datadir}/%{shortname} -s /sbin/nologin \
@@ -290,6 +311,10 @@ test -f /tmp/squeezerpmdebug && set -x
 # know if a migration from squeezeboxserver configuration to lyrionmusicserver
 # configuration is necessary
 checkConfigMigration
+
+# The following deals with the handling of the unit file so that
+# the service is initialised according to the packaging rules.
+%systemd_pre %{shortname}.service
 
 exit 0
 
@@ -362,24 +387,19 @@ function migrateSqueezeboxServerConfig {
    echo "Server. All Components of the software have been re-branded from"
    echo "squeezeboxserver to lyrionmusicserver." 
    echo "To stop and start the software use:"
-   echo "systemd start lyrionmusicserver (on systemd systems)"
-   echo "/sbin/service lyrionmusicserver start (on SYSV Init systems)."
+   echo "systemd start lyrionmusicserver"
    echo "and analogous for stop, status etc."
    echo ""
-   echo "If you have made changes to /etc/sysconfig/squeezeboxserver, then you"
-   echo "must transfer those changes yourself to /etc/sysconfig/%{shortname}."
    echo ""
    echo "For more information, read %{_datadir}/%{shortname}/README.rebranding."
+   echo "For more information, read %{_datadir}/%{shortname}/README.systemd."
    echo "################################################################################"
    echo ""
 
 }
 
+test -f /tmp/squeezerpmdebug && echo "post script"
 test -f /tmp/squeezerpmdebug && set -x
-
-# Source /etc/os-release to find out what kind of system we are on.
-# We will use ID_LIKE and ID from this file
-. /etc/os-release || :
 
 # Check if we need to migrate a squeezeboxserver config to lyrion music server
 if [ -f /var/tmp/migrateSqueezeboxserverConfig ]; then
@@ -388,33 +408,54 @@ if [ -f /var/tmp/migrateSqueezeboxserverConfig ]; then
 
 fi
 
-PORT=`/usr/bin/perl -lane  'if ( /^httpport:/) {print $F[1]; exit}' %{_var}/lib/%{shortname}/prefs/server.prefs`
-[ -z "$PORT" ] && PORT=9000
-HOSTNAME=`uname -n`
+# The following continues the initialisation of the service from
+# the pre script. It will use the systemd.preset files to decide
+# whether the service should be enabled or disabled by default.
+%systemd_post %{shortname}.service 
 
-# Enable and start the Lyrion Music Server
-/usr/bin/systemctl daemon-reload >/dev/null 2>&1 || :
-/usr/bin/systemctl enable  %{shortname}.service >/dev/null 2>&1 || :
-/usr/bin/systemctl restart %{shortname}.service >/dev/null 2>&1 || :
+# Here is an anomaly that I introduce to honour the long standing
+# tradition that the Lyrion Music Server is started immediately
+# if it is a first time installation. This of course contradicts
+# the packaging rules of Fedora/SUSE et al
+if [ "$1" -eq "1" ] ; then
+   # This is a first time install.
+   /usr/bin/systemctl start %{shortname}.service || :
 
-echo "Point your web browser to http://$HOSTNAME:$PORT/ to configure Lyrion Music Server."
+   PORT=`/usr/bin/perl -lane  'if ( /^httpport:/) {print $F[1]; exit}' %{_var}/lib/%{shortname}/prefs/server.prefs` || :
+   [ -z "$PORT" ] && PORT=9000
+   HOSTNAME=`uname -n` || :
+   echo "Point your web browser to http://$HOSTNAME:$PORT/ to configure Lyrion Music Server." || :
+else
+   # The following should normally be done in the postun script, 
+   # but as versions before 9.2 did not use the systemd_* macros to initialise
+   # the service according to the packaging rules and the postun script was 
+   # empty, we need to do this here.
+   # This bit of code should eentually be removed when we think most of the users are on 
+   # version 9.2 or newer.
+   /usr/bin/systemctl try-restart %{shortname}.service || :
+fi
+
+exit 0
+
 
 %preun
+test -f /tmp/squeezerpmdebug && echo "preun script"
 test -f /tmp/squeezerpmdebug && set -x
 
-. /etc/os-release || :
-
-if [ "$1" -eq "0" ] ; then
-	# If not upgrading
-
-        /usr/bin/systemctl stop %{shortname}.service >/dev/null 2>&1 || :
-        /usr/bin/systemctl disable %{shortname}.service >/dev/null 2>&1 || :
-        /usr/bin/systemctl daemon-reload >/dev/null 2>&1 || :
-
-fi
+# Use this macro to ensure proper
+# handling of the service.
+%systemd_preun %{shortname}.service
 
 
 %postun
+test -f /tmp/squeezerpmdebug && echo "postun script"
+test -f /tmp/squeezerpmdebug && set -x
+
+# Use this macro to ensure proper
+# handling of the service.
+%systemd_postun_with_restart %{shortname}.service
+
+exit 0
 
 
 %files
@@ -444,8 +485,9 @@ fi
 %attr(0644,%{userd},%{groupd}) %ghost %{_var}/log/%{shortname}/server.log
 %attr(0644,%{userd},%{groupd}) %ghost %{_var}/log/%{shortname}/scanner.log
 
-# Systemd service file.
+# Systemd service file and preset file.
 %attr(0644,root,root) %{_unitdir}/%{shortname}.service
+%attr(0644,root,root) %{_presetdir}/50-%{shortname}.preset
 
 # Configuration files and init script
 %dir %{_sysconfdir}/%{shortname}
@@ -474,14 +516,20 @@ fi
 
 
 %changelog
-* Sat Feb 21 2026 Johan Saaw
-- Remove support for Sys V Init. RedHat and SUSE based distros
-  moved to systemd many years ago and now they are also removing
-  backwards compatibility for init scripts, so it is time to
-  remove Sys V Init components. This includes the lyrionmusicserver
-  file in /etc/sysconfig. 
+* Sat Feb 28 2026 Johan Saaw
+- Removed support for Sys V Init. RedHat and SUSE based distros
+  moved to systemd many years ago. Also removed support for
+  /etc/sysconfig/lyrionmusicserver
 - Added systemd as pre-requisite with the %systemd_requires macro.
-- Fixed error in the logrotate config.
+- Added BuildRequires systemd-rpm-macros
+- Added use of systemd_pre, systemd_preun, systemd_post and 
+  systemd_postun_with_restart to initialise and handle the unit
+  file and service correctly.
+- Added a systemd preset file to enable lyrionmusicserver at
+  installation time.
+- Added logic to start lyrionmusicserver immediately during 
+  install  if it is a first time installation. Upgrades will
+  follow the packaging rules.
 
 * Mon Oct 20 2025 Peter Oliver <rpm@mavit.org.uk>
 - Drop support for Perl versions not currently seen in usage stats.
