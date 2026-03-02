@@ -373,7 +373,7 @@ function migrateSqueezeboxServerConfig {
    echo "Server. All Components of the software have been re-branded from"
    echo "squeezeboxserver to lyrionmusicserver." 
    echo "To stop and start the software use:"
-   echo "systemd start lyrionmusicserver"
+   echo "systemctl start lyrionmusicserver"
    echo "and analogous for stop, status etc."
    echo ""
    echo ""
