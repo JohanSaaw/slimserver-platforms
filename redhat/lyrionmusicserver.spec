@@ -105,7 +105,13 @@ Requires(post):  /usr/bin/ln
 Requires(post):  /usr/bin/mv
 Requires(post):  /usr/bin/rm
 Requires(post):  /usr/sbin/usermod
+# The following is needed to ensure that we get the right version of Perl.
+# The perl(:VERSION) is for RedHat flavours, the perl >= is for SUSE flavours.
 Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
+
+# This one is needed on RedHat flavour versions 8 and 9
+# Without it there will be necessary perl modules missing.
+Requires: perl
 Requires:      perl(IO::Socket::SSL)
 
 Provides:	%{src_basename} = %{version}-%{release}
@@ -373,7 +379,7 @@ function migrateSqueezeboxServerConfig {
    echo "Server. All Components of the software have been re-branded from"
    echo "squeezeboxserver to lyrionmusicserver." 
    echo "To stop and start the software use:"
-   echo "systemctl start lyrionmusicserver"
+   echo "systemd start lyrionmusicserver"
    echo "and analogous for stop, status etc."
    echo ""
    echo ""
