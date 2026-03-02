@@ -105,22 +105,8 @@ Requires(post):  /usr/bin/ln
 Requires(post):  /usr/bin/mv
 Requires(post):  /usr/bin/rm
 Requires(post):  /usr/sbin/usermod
-
-# The SUSE and Fedora/RedHat universes have decided differently 
-# on how PERL returns version numbers. The following line
-# works on Fedora/RedHat but not on SUSE.
-#Requires: (perl(:VERSION) >= 5.22 and perl(:VERSION) < 5.43)
-# The following line works on SUSE but not on Fedore/RedHat flavours
-#Requires: (perl >= 5.22 and perl < 5.43)
-# The following 2 lines work on SUSE but not on Fedora/RedHat.
-#Requires: perl >= 5.22
-#Conflicts: perl >= 5.43
-# It leaves this possibility if we want to have a require statement
-# that requires PERL higher than 5.22 but lower than 5.43. This works
-# on both SUSE and Fedora/RedHat.
-Requires: (perl(:MODULE_COMPAT_5.22.0) or perl(:MODULE_COMPAT_5.24.0) or perl(:MODULE_COMPAT_5.26.0) or perl(:MODULE_COMPAT_5.28.0) or perl(:MODULE_COMPAT_5.30.0) or perl(:MODULE_COMPAT_5.32.0) or perl(:MODULE_COMPAT_5.34.0) or perl(:MODULE_COMPAT_5.36.0) or perl(:MODULE_COMPAT_5.38.0) or perl(:MODULE_COMPAT_5.40.0) or perl(:MODULE_COMPAT_5.42.0))
-
-Recommends:      perl(IO::Socket::SSL)
+Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
+Requires:      perl(IO::Socket::SSL)
 
 Provides:	%{src_basename} = %{version}-%{release}
 Obsoletes:	logitechmediaserver
