@@ -46,6 +46,17 @@ If you want/need to build for `x86_64` on a modern `arm64` platform (Apple Silic
 
 Tests might fail on `x86_64` because the script might be running them in the wrong architecture. I'll be lazy and ignore them on `x86_64` using `-t` if they passed on `arm64`.
 
+## Codesign the binaries
+
+All binaries must be signed or notarization of the package will fail:
+
+```bash
+codesign --force --options runtime \
+  --sign "Developer ID Application: Your Name (TEAMID)" \
+  path/to/your/module.bundle
+```
+
+
 ## Old Instructions
 *Theoretically you should be able to cross compile on one system. Alas, I didn't succeed building all the binaries following the old instructions. Here they are anyway.*
 
