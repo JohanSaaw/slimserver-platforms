@@ -93,8 +93,8 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Vendor:		Lyrion Community
 
 
+%{?systemd_requires}
 BuildRequires:   systemd-rpm-macros
-%systemd_requires
 Requires(pre):   /usr/bin/getent
 Requires(pre):   /usr/bin/touch
 Requires(pre):   /usr/sbin/groupadd
@@ -105,14 +105,46 @@ Requires(post):  /usr/bin/ln
 Requires(post):  /usr/bin/mv
 Requires(post):  /usr/bin/rm
 Requires(post):  /usr/sbin/usermod
+Requires(post):  systemd
+
 # The following is needed to ensure that we get the right version of Perl.
 # The perl(:VERSION) is for RedHat flavours, the perl >= is for SUSE flavours.
-Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
+Requires: ( perl >= 5.22 or perl(:VERSION) >= 5.22 ) 
+# If we ever want to introduce an upper version limit, then the Require 
+# statement should look like:
+#Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
+# For RedHat based distributions, require perl so that
+# the perl core is pulled in. It isn't pulled in by the versioned require here
+# above.
+Requires:    perl
 
-# This one is needed on RedHat flavour versions 8 and 9
-# Without it there will be necessary perl modules missing.
-Requires: perl
+# This is required and not included in the Perl core package neither
+# on SUSE, nor on RedHat distributions.
 Requires:      perl(IO::Socket::SSL)
+
+# The following commented Requires show which Perl modules
+# are required by lyrion but not shipped in the lyrion RPM 
+# package. They are added here as information only.
+# Hopefully I haven't missed any needed modules.
+#Requires:      perl(strict)
+#Requires:      perl(Config)
+#Requires:      perl(Socket)
+#Requires:      perl(FindBin)
+#Requires:      perl(lib)
+#Requires:      perl(Getopt::Long)
+#Requires:      perl(File::Path)
+#Requires:      perl(File::Copy)
+#Requires:      perl(File::Find)
+#Requires:      perl(POSIX)
+#Requires:      perl(Time::HiRes)
+#Requires:      perl(locale)
+#Requires:      perl(DynaLoader)
+#Requires:      perl(Sys::Hostname)
+#Requires:      perl(Devel::Peek)
+#Requires:      perl(I18N::LangTags)
+#Requires:      perl(subs)
+#Requires:      perl(Compress::Raw::Zlib)
+#Requires:      perl(Digest::SHA)
 
 Provides:	%{src_basename} = %{version}-%{release}
 Obsoletes:	logitechmediaserver
@@ -128,8 +160,7 @@ BuildArch:	noarch
 Lyrion Music Server powers the Squeezebox, Transporter and SLIMP3 network music
 players and is the best software to stream your music to any software MP3
 player. It supports MP3, AAC, WMA, FLAC, Ogg Vorbis, WAV and more!
-As of version 7.7 it also supports UPnP clients, serving pictures and movies too!
-
+As of version 7.7 it also supports UPnP clients.
 
 %prep
 %setup -q -n %{src_basename}
@@ -304,9 +335,17 @@ test -f /tmp/squeezerpmdebug && set -x
 # configuration is necessary
 checkConfigMigration
 
-# The following deals with the handling of the unit file so that
-# the service is initialised according to the packaging rules.
-%systemd_pre %{shortname}.service
+# The systemd rpm macros are not the same on RedHat and SUSE
+# distributions. The systemd_pre is only available on SUSE,
+# it is not needed on RedHat distributions.
+# Crude but effective way to find out if the script is running
+# on SUSE when being installed.
+SUSE=`/usr/bin/perl -lane 'print foreach grep {m/suse/i} @F' /etc/os-release`
+if [ -n "$SUSE" ]; then
+   # The following deals with the handling of the unit file so that
+   # the service is initialised according to the packaging rules.
+   %systemd_pre %{shortname}.service
+fi
 
 exit 0
 
@@ -359,7 +398,7 @@ function migrateSqueezeboxServerConfig {
    /usr/bin/rm -fr /var/lib/%{shortname}.bck >/dev/null 2>&1 || :
 
    # Remove migration flag file
-   /usr/bin/rm -f /var/tmp/migrateSqueezeboxserverConfig
+   /usr/bin/rm -f /var/tmp/migrateSqueezeboxserverConfig >/dev/null 2>&1 || :
 
    # Some plugin requires the user id that is used to run
    # the music server to be in specific groups. Thus, add
@@ -422,8 +461,8 @@ else
    # but as versions before 9.2 did not use the systemd_* macros to initialise
    # the service according to the packaging rules and the postun script was 
    # empty, we need to do this here.
-   # This bit of code should eentually be removed when we think most of the users are on 
-   # version 9.2 or newer.
+   # This bit of code should eventually be removed when we think most of the 
+   # users are on version 9.2 or newer.
    /usr/bin/systemctl try-restart %{shortname}.service || :
 fi
 
@@ -522,10 +561,8 @@ exit 0
 - Added logic to start lyrionmusicserver immediately during 
   install  if it is a first time installation. Upgrades will
   follow the packaging rules.
-
 * Mon Oct 20 2025 Peter Oliver <rpm@mavit.org.uk>
 - Drop support for Perl versions not currently seen in usage stats.
-
 * Sat Feb 01 2025 Johan Saaw
 - Removed selinux config support for mySQL/MariaDB databases as they are no
   longer officially supported for LMS
