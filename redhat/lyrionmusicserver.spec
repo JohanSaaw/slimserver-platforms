@@ -105,7 +105,7 @@ Requires(post):  /usr/bin/ln
 Requires(post):  /usr/bin/mv
 Requires(post):  /usr/bin/rm
 Requires(post):  /usr/sbin/usermod
-Requires(post):  systemd
+Requires(post):  /usr/bin/systemctl
 
 # The following is needed to ensure that we get the right version of Perl.
 # The perl(:VERSION) is for RedHat flavours, the perl >= is for SUSE flavours.
