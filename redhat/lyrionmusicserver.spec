@@ -93,7 +93,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Vendor:		Lyrion Community
 
 
-%{?systemd_requires}
+
 BuildRequires:   systemd-rpm-macros
 Requires(pre):   /usr/bin/getent
 Requires(pre):   /usr/bin/touch
