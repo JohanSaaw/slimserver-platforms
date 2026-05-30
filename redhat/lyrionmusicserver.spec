@@ -92,8 +92,6 @@ Source7:        %{shortname}.preset
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Vendor:		Lyrion Community
 
-
-
 BuildRequires:   systemd-rpm-macros
 Requires(pre):   /usr/bin/getent
 Requires(pre):   /usr/bin/touch
@@ -108,43 +106,39 @@ Requires(post):  /usr/sbin/usermod
 Requires(post):  /usr/bin/systemctl
 
 # The following is needed to ensure that we get the right version of Perl.
+# Check both for minumu and maximum versions.
 # The perl(:VERSION) is for RedHat flavours, the perl >= is for SUSE flavours.
-Requires: ( perl >= 5.22 or perl(:VERSION) >= 5.22 ) 
-# If we ever want to introduce an upper version limit, then the Require 
-# statement should look like:
-#Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
-# For RedHat based distributions, require perl so that
-# the perl core is pulled in. It isn't pulled in by the versioned require here
-# above.
-Requires:    perl
+Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
 
-# This is required and not included in the Perl core package neither
-# on SUSE, nor on RedHat distributions.
+# The following Requires wre a list of the PERL modules we know that we need.
+# They are are required by lyrion but not shipped in the lyrion RPM 
+# package. 
 Requires:      perl(IO::Socket::SSL)
+Requires:      perl(strict)
+Requires:      perl(Config)
+Requires:      perl(Socket)
+Requires:      perl(FindBin)
+Requires:      perl(lib)
+Requires:      perl(Getopt::Long)
+Requires:      perl(File::Path)
+Requires:      perl(File::Copy)
+Requires:      perl(File::Find)
+Requires:      perl(POSIX)
+Requires:      perl(Time::HiRes)
+Requires:      perl(locale)
+Requires:      perl(DynaLoader)
+Requires:      perl(Sys::Hostname)
+Requires:      perl(Devel::Peek)
+Requires:      perl(I18N::LangTags)
+Requires:      perl(subs)
+Requires:      perl(Compress::Raw::Zlib)
+Requires:      perl(Digest::SHA)
 
-# The following commented Requires show which Perl modules
-# are required by lyrion but not shipped in the lyrion RPM 
-# package. They are added here as information only.
-# Hopefully I haven't missed any needed modules.
-#Requires:      perl(strict)
-#Requires:      perl(Config)
-#Requires:      perl(Socket)
-#Requires:      perl(FindBin)
-#Requires:      perl(lib)
-#Requires:      perl(Getopt::Long)
-#Requires:      perl(File::Path)
-#Requires:      perl(File::Copy)
-#Requires:      perl(File::Find)
-#Requires:      perl(POSIX)
-#Requires:      perl(Time::HiRes)
-#Requires:      perl(locale)
-#Requires:      perl(DynaLoader)
-#Requires:      perl(Sys::Hostname)
-#Requires:      perl(Devel::Peek)
-#Requires:      perl(I18N::LangTags)
-#Requires:      perl(subs)
-#Requires:      perl(Compress::Raw::Zlib)
-#Requires:      perl(Digest::SHA)
+# For RedHat based distributions, Recommend perl so that
+# the perl core is pulled in. We use Recommends instead of Require so that users
+# can remove the unneeded packages if they want too.
+# above.
+Recommends:    perl
 
 Provides:	%{src_basename} = %{version}-%{release}
 Obsoletes:	logitechmediaserver
