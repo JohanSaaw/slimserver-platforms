@@ -107,7 +107,7 @@ Requires(post):  /usr/bin/systemctl
 
 # The following is needed to ensure that we get the right version of Perl.
 # Check both for minumu and maximum versions.
-# The perl(:VERSION) is for RedHat flavours, the perl >= is for SUSE flavours.
+# The perl(:VERSION) is for Red Hat flavours, and the perl >= is for SUSE flavours.
 Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
 
 # The following Requires wre a list of the PERL modules we know that we need.
