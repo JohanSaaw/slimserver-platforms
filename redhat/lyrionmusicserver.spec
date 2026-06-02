@@ -110,8 +110,8 @@ Requires(post):  /usr/bin/systemctl
 # The perl(:VERSION) is for Red Hat flavours, and the perl >= is for SUSE flavours.
 Requires: ((perl >= 5.22 or perl(:VERSION) >= 5.22) with ( perl < 5.43 or perl(:VERSION) < 5.43))
 
-# The following Requires wre a list of the PERL modules we know that we need.
-# They are are required by lyrion but not shipped in the lyrion RPM 
+# The following Requires are a list of the Perl modules we know that we need.
+# They are are required by Lyrion Music Server, but not shipped in the RPM 
 # package. 
 Requires:      perl(IO::Socket::SSL)
 Requires:      perl(strict)
