@@ -134,10 +134,9 @@ Requires:      perl(subs)
 Requires:      perl(Compress::Raw::Zlib)
 Requires:      perl(Digest::SHA)
 
-# For RedHat based distributions, Recommend perl so that
-# the perl core is pulled in. We use Recommends instead of Require so that users
-# can remove the unneeded packages if they want too.
-# above.
+# For Red Hat based distributions, Recommend perl so that the Perl core is
+# pulled in for use by LMS plugins. We use Recommends instead of Requires so
+# that users can remove unneeded packages if they want too.
 Recommends:    perl
 
 Provides:	%{src_basename} = %{version}-%{release}
