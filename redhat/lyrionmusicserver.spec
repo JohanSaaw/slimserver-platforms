@@ -250,7 +250,7 @@ ln -s %{_var}/lib/%{shortname}/prefs/server.prefs \
 rm -rf $RPM_BUILD_ROOT
 
 
-%pre
+%pre -e
 function checkConfigMigration () {
 
    test -f /tmp/squeezerpmdebug && set -x
@@ -328,17 +328,13 @@ test -f /tmp/squeezerpmdebug && set -x
 # configuration is necessary
 checkConfigMigration
 
-# The systemd rpm macros are not the same on RedHat and SUSE
+# The systemd RPM macros are not the same on Red Hat and SUSE
 # distributions. The systemd_pre is only available on SUSE,
-# it is not needed on RedHat distributions.
-# Crude but effective way to find out if the script is running
-# on SUSE when being installed.
-SUSE=`/usr/bin/perl -lane 'print foreach grep {m/suse/i} @F' /etc/os-release`
-if [ -n "$SUSE" ]; then
-   # The following deals with the handling of the unit file so that
-   # the service is initialised according to the packaging rules.
-   %systemd_pre %{shortname}.service
-fi
+# and it is not needed on Red Hat distributions.
+# Use the -e flag for the pre script, and escape the systemd_pre
+# macro, so that the following is evaluated at runtime. This way a build
+# created on of of the OS will also work on the other OS.
+%%{?systemd_pre:%%{systemd_pre %{shortname}.service}}
 
 exit 0
 
@@ -443,6 +439,7 @@ fi
 # the packaging rules of Fedora/SUSE et al
 if [ "$1" -eq "1" ] ; then
    # This is a first time install.
+   /usr/bin/systemctl daemon-reload || :
    /usr/bin/systemctl start %{shortname}.service || :
 
    PORT=`/usr/bin/perl -lane  'if ( /^httpport:/) {print $F[1]; exit}' %{_var}/lib/%{shortname}/prefs/server.prefs` || :
@@ -540,7 +537,7 @@ exit 0
 
 
 %changelog
-* Sat Feb 28 2026 Johan Saaw
+* Wed Jun 02 2026 Johan Saaw
 - Removed support for Sys V Init. Red Hat and SUSE based distros
   moved to systemd many years ago. Also removed support for
   /etc/sysconfig/lyrionmusicserver
