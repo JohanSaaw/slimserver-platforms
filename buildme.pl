@@ -387,6 +387,9 @@ sub getRevisionForRepo {
 			$rev = `git --git-dir=$sourceDir/$repo/.git log -n 1 --pretty=format:%ct`;
 			$rev =~ s/\s*$//s;
 		}
+		else {
+			warn "No .git directory found for $repo, cannot determine revision number.\n";
+		}
 
 		return $rev;
 	};
