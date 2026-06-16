@@ -140,11 +140,11 @@ Requires:      perl(Digest::SHA)
 Recommends:    perl
 
 Provides:	%{src_basename} = %{version}-%{release}
-Obsoletes:	logitechmediaserver
-Obsoletes:	SliMP3
-Obsoletes:	slimserver
-Obsoletes:	squeezeboxserver
-Obsoletes:	squeezecenter
+Obsoletes:	logitechmediaserver < 9
+Obsoletes:	squeezeboxserver < 7.7
+Obsoletes:	squeezecenter < 7.4
+Obsoletes:	slimserver < 7
+Obsoletes:	SliMP3 < 5
 AutoReqProv:	no
 
 BuildArch:	noarch
