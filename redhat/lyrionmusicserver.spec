@@ -537,7 +537,7 @@ exit 0
 
 
 %changelog
-* Wed Jun 02 2026 Johan Saaw
+* Tue Jun 02 2026 Johan Saaw
 - Removed support for Sys V Init. Red Hat and SUSE based distros
   moved to systemd many years ago. Also removed support for
   /etc/sysconfig/lyrionmusicserver
