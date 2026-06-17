@@ -1,15 +1,16 @@
-# The following macros can either be defined here or passed into rpmbuild as macros
+# The following macros can either be defined here or passed into
+# rpmbuild with the --define or --with options.
+#
 # This is required:
-# %%define _version 7.7
+# %%define _version 9.2.0
+#
 # One (and only one) of the following is required:
 # %%define _with_trunk 1
 # %%define _with_branch 1
 # %%define _with_release 1
-# These are required with _with_trunk or _with_branch
-# %%define _src_date 2007-12-07
-# %%define _rpm_date 20071207
-# The following is required with _with_branch
-# %%define _branch 7.7
+#
+# The following is required with _with_trunk or _with_branch:
+# %%define _revision 1781670901
 
 # As from version 9.0.0 the logitech media server has been re-branded 
 # to Lyrion Music Server. It was decided to also properly re-name all
