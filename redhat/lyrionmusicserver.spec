@@ -140,12 +140,21 @@ Requires:      logrotate
 # that users can remove unneeded packages if they want too.
 Recommends:    perl
 
+%if "%{src_basename}" != "%{name}"
 Provides:	%{src_basename} = %{version}-%{release}
+%endif
+
+Provides:	logitechmediaserver = %{version}-%{release}
+Provides:	squeezeboxserver = %{version}-%{release}
+Provides:	squeezecenter = %{version}-%{release}
+Provides:	slimserver = %{version}-%{release}
+Provides:	SliMP3 = %{version}-%{release}
 Obsoletes:	logitechmediaserver < 9
 Obsoletes:	squeezeboxserver < 7.7
 Obsoletes:	squeezecenter < 7.4
 Obsoletes:	slimserver < 7
 Obsoletes:	SliMP3 < 5
+
 AutoReqProv:	no
 
 BuildArch:	noarch
