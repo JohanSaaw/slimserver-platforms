@@ -544,7 +544,7 @@ exit 0
 - Removed support for Sys V Init. Red Hat and SUSE based distros
   moved to systemd many years ago. Also removed support for
   /etc/sysconfig/lyrionmusicserver
-- Added systemd as pre-requisite with the %systemd_requires macro.
+- Added systemd as pre-requisite with the %%systemd_requires macro.
 - Added BuildRequires systemd-rpm-macros
 - Added use of systemd_pre, systemd_preun, systemd_post and 
   systemd_postun_with_restart to initialise and handle the unit
@@ -626,7 +626,7 @@ exit 0
 	- Use system copy of flac, mysqld and sox
 	- Add condrestart option and support for logrotate
 	- Build from the public tarball, not the munged makerelease.pl one
-	- Simplify and rewrite %pre and %post scriptlets
+	- Simplify and rewrite %%pre and %%post scriptlets
 
 * Tue Oct 16 2007 andy
 - Removed deps on perl-XML-Parser and perl-Digest-SHA1
@@ -672,7 +672,7 @@ people were having with saving playlists and such.
 
 * Sun Feb 09 2003	Mike Arnold <mike@razorsedge.org>
 - Cleaned up DV's changes to the preinstall script.
-- Added %config(noreplace) to /etc/sysconfig/slimp3.
+- Added %%config(noreplace) to /etc/sysconfig/slimp3.
 - Fixed two changes in the postinstall script that broke relocation.
 
 * Thu Oct 24 2002   DV <datavortex@datavortex.net>
@@ -681,9 +681,9 @@ people were having with saving playlists and such.
 
 * Tue Oct 22 2002	Mike Arnold <mike@razorsedge.org>
 - Fixed a problem with doing a package "upgrade" and losing the
-  passwd entry for the slimp3 user in %preun and %postun.
+  passwd entry for the slimp3 user in %%preun and %%postun.
 - Made sure an existing /etc/slimp3.pref was not replaced by a newer package.
-- Got rid of all the commented, tarball-removal stuff in %pre.
+- Got rid of all the commented, tarball-removal stuff in %%pre.
 - Beautified the spec file for final release.
 
 * Sun Oct 20 2002   Dean Blackketter <dean@slimdevices.com>
@@ -699,7 +699,7 @@ people were having with saving playlists and such.
 
 * Sun Sep 08 2002	Mike Arnold <mike@razorsedge.org>
 - Made the RPM relocatable for those who do not want to use /opt
-  including a %post hack to mod /etc/sysconfig/slimp3
+  including a %%post hack to mod /etc/sysconfig/slimp3
 - Made sure slimp3.pl was chmod +x, even if the tarball was wrong
 - Cleaned up the BUILD_DIR after the rpms are built
 - Changed localhost to "uname -n" in post-install commandline echo
@@ -717,10 +717,10 @@ people were having with saving playlists and such.
 - Changed the slimp3dir to /opt as this is where "packages" should go
 - Added an external startup config file in /etc/sysconfig
 - Added documentation to the RPM
-- Kept %postun from deleteing the %config file as rpm takes care of this
+- Kept %%postun from deleteing the %%config file as rpm takes care of this
 - Changed software group to System Environment/Daemons
 - Added a nice description
-- Added %clean
+- Added %%clean
 
 * Wed Aug 28 2002	Victor Brilon <victor@vail.net>
 - First release
