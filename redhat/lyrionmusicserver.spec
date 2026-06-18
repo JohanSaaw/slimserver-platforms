@@ -133,6 +133,8 @@ Requires:      perl(Digest::SHA)
 # hardware players:
 Recommends:    perl(Font::FreeType)
 
+Requires:      logrotate
+
 # For Red Hat based distributions, Recommend perl so that the Perl core is
 # pulled in for use by LMS plugins. We use Recommends instead of Requires so
 # that users can remove unneeded packages if they want too.
