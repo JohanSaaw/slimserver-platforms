@@ -74,7 +74,6 @@ Version:	%{_version}
 Release:	%{rpm_release}
 Summary:        Lyrion Music Server
 
-Group:		System Environment/Daemons
 License:	GPL and proprietary
 URL:		https://www.lyrion.org
 Source0:	%{src_basename}.tgz
