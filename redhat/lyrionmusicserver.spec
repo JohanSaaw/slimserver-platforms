@@ -285,12 +285,6 @@ function checkConfigMigration () {
    # First see if currently the logitechmediaserver package is installed.
 
    if [ -f /usr/libexec/squeezeboxserver ]; then
-     
-     # Touch a file to allow the post script to know that we are moving
-     # from squeezeboxserver to lyrionmusicserver
-     /usr/bin/touch /var/tmp/SqueezeToLyrion || :
- 
-
      if [ -f /var/lib/squeezeboxserver/prefs/server.prefs ]; then
 
        # config should be migrated.
