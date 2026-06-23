@@ -220,7 +220,7 @@ cp -p cleanup.pl $RPM_BUILD_ROOT%{_usr}/libexec/%{shortname}-cleanup
 cp -p gdresized.pl $RPM_BUILD_ROOT%{_usr}/libexec/%{shortname}-resized
 
 # Create symlink to 3rd Party Plugins
-ln -s %{_var}/lib/%{shortname}/Plugins \
+ln -rs $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/Plugins \
 	$RPM_BUILD_ROOT%{_datadir}/%{shortname}/Plugins
 
 # Install service, configuration and log files
@@ -251,7 +251,7 @@ touch $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/plugin/rssnews.prefs
 touch $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/plugin/state.prefs
 
 # Create symlink to server prefs file
-ln -s %{_var}/lib/%{shortname}/prefs/server.prefs \
+ln -rs $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/server.prefs \
 	$RPM_BUILD_ROOT%{_sysconfdir}/%{shortname}/server.conf
 
 
