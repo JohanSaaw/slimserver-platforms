@@ -255,10 +255,6 @@ ln -s %{_var}/lib/%{shortname}/prefs/server.prefs \
 	$RPM_BUILD_ROOT%{_sysconfdir}/%{shortname}/server.conf
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %pre -e
 function checkConfigMigration () {
 
