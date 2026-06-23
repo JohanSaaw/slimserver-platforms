@@ -390,7 +390,7 @@ function migrateSqueezeboxServerConfig {
 
    # Some plugin requires the user id that is used to run
    # the music server to be in specific groups. Thus, add
-   # the user id lyrionmusicserver (%{shortname} to the same
+   # the user id lyrionmusicserver (%%{shortname} to the same
    # groups as the user id squeezeboxserver is in. This will
    # help those users who have added such plugins.
    groups=`groups squeezeboxserver |/usr/bin/perl -lane 'print foreach grep { not m/^(squeezeboxserver|\:)/   } @F'`
