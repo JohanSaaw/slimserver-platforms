@@ -224,7 +224,7 @@ ln -rs $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/Plugins \
 	$RPM_BUILD_ROOT%{_datadir}/%{shortname}/Plugins
 
 # Install service, configuration and log files
-install -Dp -m755 %SOURCE1 $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{shortname}
+install -Dp -m644 %SOURCE1 $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{shortname}
 install -Dp -m644 %SOURCE3 $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{shortname}
 install -Dp -m644 %SOURCE4 $RPM_BUILD_ROOT%{_unitdir}/%{shortname}.service
 install -Dp -m644 %SOURCE5 $RPM_BUILD_ROOT%{_datadir}/%{shortname}/README.systemd
