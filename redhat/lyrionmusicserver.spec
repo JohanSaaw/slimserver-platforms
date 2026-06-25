@@ -134,6 +134,10 @@ Requires:      perl(subs)
 Requires:      perl(Compress::Raw::Zlib)
 Requires:      perl(Digest::SHA)
 
+# Required for Unicode support on the fluorescent screens on old
+# hardware players:
+Recommends:    perl(Font::FreeType)
+
 # For Red Hat based distributions, Recommend perl so that the Perl core is
 # pulled in for use by LMS plugins. We use Recommends instead of Requires so
 # that users can remove unneeded packages if they want too.
