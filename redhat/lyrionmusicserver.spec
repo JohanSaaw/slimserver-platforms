@@ -490,7 +490,8 @@ exit 0
 %defattr(-,root,root,-)
 
 # Documentation files
-%doc Changelog*.html License.* README.lib README.HTML
+%doc Changelog*.html README.lib README.HTML
+%license License.txt
 
 # Main files
 %{_usr}/lib/perl5/vendor_perl/Slim
