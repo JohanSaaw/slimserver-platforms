@@ -74,7 +74,6 @@ Version:	%{_version}
 Release:	%{rpm_release}
 Summary:        Lyrion Music Server
 
-Group:		System Environment/Daemons
 License:	GPL and proprietary
 URL:		https://www.lyrion.org
 Source0:	%{src_basename}.tgz
@@ -133,17 +132,28 @@ Requires:      perl(Digest::SHA)
 # hardware players:
 Recommends:    perl(Font::FreeType)
 
+Requires:      logrotate
+
 # For Red Hat based distributions, Recommend perl so that the Perl core is
 # pulled in for use by LMS plugins. We use Recommends instead of Requires so
 # that users can remove unneeded packages if they want too.
 Recommends:    perl
 
+%if "%{src_basename}" != "%{name}"
 Provides:	%{src_basename} = %{version}-%{release}
+%endif
+
+Provides:	logitechmediaserver = %{version}-%{release}
+Provides:	squeezeboxserver = %{version}-%{release}
+Provides:	squeezecenter = %{version}-%{release}
+Provides:	slimserver = %{version}-%{release}
+Provides:	SliMP3 = %{version}-%{release}
 Obsoletes:	logitechmediaserver < 9
 Obsoletes:	squeezeboxserver < 7.7
 Obsoletes:	squeezecenter < 7.4
 Obsoletes:	slimserver < 7
 Obsoletes:	SliMP3 < 5
+
 AutoReqProv:	no
 
 BuildArch:	noarch
@@ -210,11 +220,11 @@ cp -p cleanup.pl $RPM_BUILD_ROOT%{_usr}/libexec/%{shortname}-cleanup
 cp -p gdresized.pl $RPM_BUILD_ROOT%{_usr}/libexec/%{shortname}-resized
 
 # Create symlink to 3rd Party Plugins
-ln -s %{_var}/lib/%{shortname}/Plugins \
+ln -rs $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/Plugins \
 	$RPM_BUILD_ROOT%{_datadir}/%{shortname}/Plugins
 
 # Install service, configuration and log files
-install -Dp -m755 %SOURCE1 $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{shortname}
+install -Dp -m644 %SOURCE1 $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/%{shortname}
 install -Dp -m644 %SOURCE3 $RPM_BUILD_ROOT%{_sysconfdir}/logrotate.d/%{shortname}
 install -Dp -m644 %SOURCE4 $RPM_BUILD_ROOT%{_unitdir}/%{shortname}.service
 install -Dp -m644 %SOURCE5 $RPM_BUILD_ROOT%{_datadir}/%{shortname}/README.systemd
@@ -241,12 +251,8 @@ touch $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/plugin/rssnews.prefs
 touch $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/plugin/state.prefs
 
 # Create symlink to server prefs file
-ln -s %{_var}/lib/%{shortname}/prefs/server.prefs \
+ln -rs $RPM_BUILD_ROOT%{_var}/lib/%{shortname}/prefs/server.prefs \
 	$RPM_BUILD_ROOT%{_sysconfdir}/%{shortname}/server.conf
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %pre -e
@@ -275,12 +281,6 @@ function checkConfigMigration () {
    # First see if currently the logitechmediaserver package is installed.
 
    if [ -f /usr/libexec/squeezeboxserver ]; then
-     
-     # Touch a file to allow the post script to know that we are moving
-     # from squeezeboxserver to lyrionmusicserver
-     /usr/bin/touch /var/tmp/SqueezeToLyrion || :
- 
-
      if [ -f /var/lib/squeezeboxserver/prefs/server.prefs ]; then
 
        # config should be migrated.
@@ -390,7 +390,7 @@ function migrateSqueezeboxServerConfig {
 
    # Some plugin requires the user id that is used to run
    # the music server to be in specific groups. Thus, add
-   # the user id lyrionmusicserver (%{shortname} to the same
+   # the user id lyrionmusicserver (%%{shortname} to the same
    # groups as the user id squeezeboxserver is in. This will
    # help those users who have added such plugins.
    groups=`groups squeezeboxserver |/usr/bin/perl -lane 'print foreach grep { not m/^(squeezeboxserver|\:)/   } @F'`
@@ -540,7 +540,7 @@ exit 0
 - Removed support for Sys V Init. Red Hat and SUSE based distros
   moved to systemd many years ago. Also removed support for
   /etc/sysconfig/lyrionmusicserver
-- Added systemd as pre-requisite with the %systemd_requires macro.
+- Added systemd as pre-requisite with the %%systemd_requires macro.
 - Added BuildRequires systemd-rpm-macros
 - Added use of systemd_pre, systemd_preun, systemd_post and 
   systemd_postun_with_restart to initialise and handle the unit
@@ -622,7 +622,7 @@ exit 0
 	- Use system copy of flac, mysqld and sox
 	- Add condrestart option and support for logrotate
 	- Build from the public tarball, not the munged makerelease.pl one
-	- Simplify and rewrite %pre and %post scriptlets
+	- Simplify and rewrite %%pre and %%post scriptlets
 
 * Tue Oct 16 2007 andy
 - Removed deps on perl-XML-Parser and perl-Digest-SHA1
@@ -668,7 +668,7 @@ people were having with saving playlists and such.
 
 * Sun Feb 09 2003	Mike Arnold <mike@razorsedge.org>
 - Cleaned up DV's changes to the preinstall script.
-- Added %config(noreplace) to /etc/sysconfig/slimp3.
+- Added %%config(noreplace) to /etc/sysconfig/slimp3.
 - Fixed two changes in the postinstall script that broke relocation.
 
 * Thu Oct 24 2002   DV <datavortex@datavortex.net>
@@ -677,9 +677,9 @@ people were having with saving playlists and such.
 
 * Tue Oct 22 2002	Mike Arnold <mike@razorsedge.org>
 - Fixed a problem with doing a package "upgrade" and losing the
-  passwd entry for the slimp3 user in %preun and %postun.
+  passwd entry for the slimp3 user in %%preun and %%postun.
 - Made sure an existing /etc/slimp3.pref was not replaced by a newer package.
-- Got rid of all the commented, tarball-removal stuff in %pre.
+- Got rid of all the commented, tarball-removal stuff in %%pre.
 - Beautified the spec file for final release.
 
 * Sun Oct 20 2002   Dean Blackketter <dean@slimdevices.com>
@@ -695,7 +695,7 @@ people were having with saving playlists and such.
 
 * Sun Sep 08 2002	Mike Arnold <mike@razorsedge.org>
 - Made the RPM relocatable for those who do not want to use /opt
-  including a %post hack to mod /etc/sysconfig/slimp3
+  including a %%post hack to mod /etc/sysconfig/slimp3
 - Made sure slimp3.pl was chmod +x, even if the tarball was wrong
 - Cleaned up the BUILD_DIR after the rpms are built
 - Changed localhost to "uname -n" in post-install commandline echo
@@ -713,10 +713,10 @@ people were having with saving playlists and such.
 - Changed the slimp3dir to /opt as this is where "packages" should go
 - Added an external startup config file in /etc/sysconfig
 - Added documentation to the RPM
-- Kept %postun from deleteing the %config file as rpm takes care of this
+- Kept %%postun from deleteing the %%config file as rpm takes care of this
 - Changed software group to System Environment/Daemons
 - Added a nice description
-- Added %clean
+- Added %%clean
 
 * Wed Aug 28 2002	Victor Brilon <victor@vail.net>
 - First release
