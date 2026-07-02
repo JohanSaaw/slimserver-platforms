@@ -76,7 +76,11 @@ Summary:        Lyrion Music Server
 
 License:	GPL and proprietary
 URL:		https://www.lyrion.org
-Source0:	%{src_basename}.tgz
+%if %{with release}
+Source0:	https://downloads.lms-community.org/LyrionMusicServer_v%{version}/%{src_basename}-%{version}.tgz
+%else
+Source0:	https://downloads.lms-community.org/nightly/%{src_basename}-%{version}-%{_revision}.tgz
+%endif
 Source1:	%{shortname}.config
 Source3:	%{shortname}.logrotate
 Source4:	%{shortname}.service
@@ -165,7 +169,11 @@ player. It supports MP3, AAC, WMA, FLAC, Ogg Vorbis, WAV and more!
 As of version 7.7 it also supports UPnP clients.
 
 %prep
-%setup -q -n %{src_basename}
+%if %{with release}
+%autosetup -n %{src_basename}-%{version}
+%else
+%autosetup -n %{src_basename}-%{version}-%{_revision}
+%endif
 
 
 %build
