@@ -88,7 +88,6 @@ Source5:	README.systemd
 Source6:        README.rebranding
 Source7:        %{shortname}.preset
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Vendor:		Lyrion Community
 
 BuildRequires:   systemd-rpm-macros
 Requires(pre):   /usr/bin/getent
