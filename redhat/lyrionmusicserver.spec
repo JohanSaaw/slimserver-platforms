@@ -69,7 +69,7 @@
 %global shortname lyrionmusicserver
 
 Name:		%{src_basename}
-Packager:	Lyrion Community - please visit www.lyrion.org
+Packager:	Lyrion Community
 Version:	%{_version}
 Release:	%{rpm_release}
 Summary:        Lyrion Music Server
