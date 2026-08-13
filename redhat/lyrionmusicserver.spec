@@ -13,6 +13,10 @@
 %bcond branch 0
 %bcond release %{without trunk} && %{without branch}
 
+%if ! %{defined src_basename}
+%global src_basename lyrionmusicserver
+%endif
+
 # As from version 9.0.0 the logitech media server has been re-branded 
 # to Lyrion Music Server. It was decided to also properly re-name all
 # components in the RPM package that have been using the string
